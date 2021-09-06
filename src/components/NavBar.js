@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget";
+
 function NavBar() {
     return (
         <nav className="navbar">
@@ -7,9 +9,9 @@ function NavBar() {
                 <li>Food</li>
                 <li>Drinks</li>
                 <li>Vegan</li>
-                <li>About Us</li>
             </ul>
             <button className='loginBtn'>LogIn</button>
+            <CartWidget />
         </nav>
     )
 }

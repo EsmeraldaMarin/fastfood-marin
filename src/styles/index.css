@@ -27,7 +27,6 @@ li {
 }
 
 .navbar > ul {
-  width: 40%;
   display: flex;
 }
 
@@ -53,16 +52,29 @@ li {
   height: 30px;
   border-radius: 15px;
   background-color: #ff2442;
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease;
 }
 
 .navbar .loginBtn:hover {
-  background-color: transparent;
-  border: 1px solid #000;
+  background-color: #fad184;
   cursor: pointer;
 }
 
 .navbar .loginBtn:active {
   background-color: #FFEDDA;
+}
+
+.navbar .cartWidget {
+  height: 100%;
+  width: 4.5em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: background-color 0.25s ease;
+}
+
+.navbar .cartWidget:hover {
+  background-color: #fad184;
+  cursor: pointer;
 }
 /*# sourceMappingURL=index.css.map */
