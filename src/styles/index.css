@@ -77,4 +77,57 @@ li {
   background-color: #fad184;
   cursor: pointer;
 }
+
+.itemCountCtn {
+  width: 200px;
+  height: 150px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FFEDDA;
+}
+
+.itemCountCtn button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.itemCountCtn .counter {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  font-size: 1.2em;
+}
+
+.itemCountCtn .counter button {
+  width: 50px;
+  height: 100%;
+  font-size: 2em;
+  line-height: 1px;
+}
+
+.itemCountCtn .counter button:hover {
+  background-color: #fad184;
+}
+
+.itemCountCtn .counter button:active {
+  background-color: #ffb830;
+}
+
+.itemCountCtn .addProdBtn {
+  background-color: #ffb830;
+  padding: 10px 0;
+}
+
+.itemCountCtn .addProdBtn:hover {
+  background-color: #fad184;
+}
+
+.itemCountCtn .addProdBtn:active {
+  background-color: #ddd;
+}
 /*# sourceMappingURL=index.css.map */
