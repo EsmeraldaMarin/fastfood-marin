@@ -1,12 +1,22 @@
 .itemListContainer {
+    .greetingMsg{
+        width: 100%;
+        height: 150px;
+        text-align: center;
+        line-height: 6;
+        background-color: $cream;
+    }
     ul {
-        display: flex;
-        flex-wrap: wrap;
+        width: 85%;
+        margin: 100px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 280px);
+        grid-gap: 20px;
         text-transform: capitalize;
+        justify-content: center;
         li.itemProduct {
-            width: 250px;
+            width: 280px;
             padding: 15px;
-            margin: 10px;
             box-shadow: 0 0 5px #ddd;
             border-radius: 25px;
             text-align: center;

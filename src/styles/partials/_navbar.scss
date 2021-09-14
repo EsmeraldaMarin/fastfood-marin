@@ -19,18 +19,23 @@
             padding: 0.5rem 1.5rem;
 
             &:hover {
-                border-radius: 15px;
-                background-color: $cream;
-                transition: background-color 0.25s ease;
+                font-weight: bold;
+                text-decoration: underline;
+               // border-radius: 15px;
+              //  background-color: $cream;
+               // transition: background-color 0.25s ease;
                 cursor: pointer;
+            }
+            &:active{
+                color: rgb(68, 68, 68);
             }
         }
     }
     .loginBtn {
         width: 100px;
         height: 30px;
-        border-radius: 15px;
-        background-color: $red;
+        //border-radius: 15px;
+        background-color: $cream;
         transition: background-color 0.25s ease;
         &:hover {
             background-color: $orange2;

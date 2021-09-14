@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 * {
   margin: 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: "Prompt", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   padding: 0;
   outline: none;
   border: 0;
@@ -41,17 +42,19 @@ li {
 }
 
 .navbar > ul li:hover {
-  border-radius: 15px;
-  background-color: #FFEDDA;
-  transition: background-color 0.25s ease;
+  font-weight: bold;
+  text-decoration: underline;
   cursor: pointer;
+}
+
+.navbar > ul li:active {
+  color: #444444;
 }
 
 .navbar .loginBtn {
   width: 100px;
   height: 30px;
-  border-radius: 15px;
-  background-color: #ff2442;
+  background-color: #FFEDDA;
   transition: background-color 0.25s ease;
 }
 
@@ -131,16 +134,27 @@ li {
   background-color: #ddd;
 }
 
+.itemListContainer .greetingMsg {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  line-height: 6;
+  background-color: #FFEDDA;
+}
+
 .itemListContainer ul {
-  display: flex;
-  flex-wrap: wrap;
+  width: 85%;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  grid-gap: 20px;
   text-transform: capitalize;
+  justify-content: center;
 }
 
 .itemListContainer ul li.itemProduct {
-  width: 250px;
+  width: 280px;
   padding: 15px;
-  margin: 10px;
   box-shadow: 0 0 5px #ddd;
   border-radius: 25px;
   text-align: center;
