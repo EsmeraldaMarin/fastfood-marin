@@ -152,6 +152,16 @@ li {
   justify-content: center;
 }
 
+@media (max-width: 1000px) {
+  .itemListContainer ul {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .itemListContainer ul li.itemProduct {
   width: 280px;
   padding: 15px;
@@ -190,5 +200,45 @@ li {
 .itemListContainer ul li.itemProduct p.productPrice {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.itemDetailCtn {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.itemDetailCtn .itemDetail {
+  display: flex;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1000px) {
+  .itemDetailCtn .itemDetail {
+    flex-wrap: wrap;
+  }
+}
+
+.itemDetailCtn .itemDetail img {
+  width: 400px;
+  margin-right: 30px;
+  border-radius: 15px;
+}
+
+@media (max-width: 1000px) {
+  .itemDetailCtn .itemDetail img {
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+}
+
+.itemDetailCtn .itemDetail .t,
+.itemDetailCtn .itemDetail .p {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.itemDetailCtn .itemDetail .d {
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=index.css.map */
