@@ -11,7 +11,7 @@ const ItemDetail = ({ id, title, description, pictureUrl, price }) => {
                 <p className="t">{title}</p>
                 <p className="d">{description}</p>
                 <p className="p">${price}</p>
-               {/*  <ItemCount initial={1} stock={5} onAdd={true} product={title}/> */}
+                <ItemCount initial={1} stock={5} onAdd={true} product={title} />
 
             </div>
         </div>

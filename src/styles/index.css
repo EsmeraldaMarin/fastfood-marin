@@ -12,6 +12,11 @@ li {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .navbar {
   width: 100%;
   height: 60px;
@@ -21,7 +26,8 @@ li {
   background-color: #ffb830;
 }
 
-.navbar > span {
+.navbar > a {
+  text-decoration: none;
   font-weight: bold;
   font-size: 2em;
   color: #000;
