@@ -2,7 +2,7 @@ import React from 'react'
 import ItemCount from '../ItemCount';
 
 
-const ItemDetail = ({ id, title, description, pictureUrl, price }) => {
+const ItemDetail = ({ id, title, description, pictureUrl, price, onAddFunction }) => {
 
     return (
         <div className="itemDetail">
@@ -11,7 +11,7 @@ const ItemDetail = ({ id, title, description, pictureUrl, price }) => {
                 <p className="t">{title}</p>
                 <p className="d">{description}</p>
                 <p className="p">${price}</p>
-                <ItemCount initial={1} stock={5} onAdd={true} product={title} />
+                <ItemCount initial={1} stock={5} onAdd={onAddFunction} product={title} />
 
             </div>
         </div>

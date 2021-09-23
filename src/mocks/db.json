@@ -1,0 +1,100 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "category":1,
+            "title": "hamburguesa",
+            "price": 500,
+            "pictureUrl": "https://d1uz88p17r663j.cloudfront.net/original/8689e8d974203563ddcc9bbff91323c2_MG_CHORIZOBURGER_Main-880x660.png",
+            "description": "Hamburguesa simple con cebolla, tomate, lechuga"
+        },
+        {
+            "id": 2,
+            "category":1,
+            "title": "papas fritas",
+            "price": 250,
+            "pictureUrl": "https://images-gmi-pmc.edge-generalmills.com/476c10e1-c851-4539-8e3b-4b49323927c5.jpg",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "category":1,
+            "title": "nuggets",
+            "price": 300,
+            "pictureUrl": "https://bakeitwithlove.com/wp-content/uploads/2021/05/Air-Fryer-Chicken-Nuggets-sq.jpg",
+            "description": "Nuggets de pollo con adhereso"
+        },
+        {
+            "id": 4,
+            "category":1,
+            "title": "pizza",
+            "price": 400,
+            "pictureUrl": "https://w6h5a5r4.rocketcdn.me/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso-1080x671.jpg",
+            "description": "Nuggets de pollo con adhereso"
+        },
+        {
+            "id": 5,
+            "category":1,
+            "title": "pancho",
+            "price": 150,
+            "pictureUrl": "https://blog.facilitas.com.ar/wp-content/uploads/2018/08/Blogpost-8-1160x628.jpeg",
+            "description": "Nuggets de pollo con adhereso"
+        },
+        {
+            "id": 6,
+            "category":1,
+            "title": "milanesas",
+            "price": 330,
+            "pictureUrl": "https://placeralplato.com/files/2016/01/Milanesas-de-pollo-al-horno.jpg",
+            "description": "Nuggets de pollo con adhereso"
+        },
+        {
+            "id": 7,
+            "category":1,
+            "title": "papas fritas con cheddar",
+            "price": 300,
+            "pictureUrl": "https://ver.rosario.gob.ar/media/cache/d7/17/d7177d59637b7f2681ff684693632210.png",
+            "description": "Nuggets de pollo con adhereso"
+        },
+        {
+            "id": 8,
+            "category":1,
+            "title": "empanadas",
+            "price": 600,
+            "pictureUrl": "https://cdn.kiwilimon.com/recetaimagen/69/th5-640x640-11549.jpg",
+            "description": "Nuggets de pollo con adhereso"
+        },
+        {
+            "id": 9,
+            "category":2,
+            "title": "ravioles",
+            "price": 600,
+            "pictureUrl": "https://rako.menualacart.com/wp-content/uploads/sites/3/2020/10/ravioles.jpg",
+            "description": ""
+        },
+        {
+            "id": 10,
+            "category":2,
+            "title": "spaghetti",
+            "price": 600,
+            "pictureUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F21%2F2018%2F02%2F14%2Frecetas-4115-spaghetti-boloesa-facil-2000.jpg&q=85",
+            "description": ""
+        },
+        {
+            "id": 11,
+            "category":3,
+            "title": "Jugo de Naranja",
+            "price": 200,
+            "pictureUrl": "https://www.eluniverso.com/resizer/jgrDnM5_A5ijk3C3RoQtU82Spyo=/1191x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/QOPIYEFGAJEQZHLKIGT3GLRO2U.jpg",
+            "description": ""
+        },
+        {
+            "id": 12,
+            "category":3,
+            "title": "Jugo de Frutos Rojos",
+            "price": 250,
+            "pictureUrl": "https://www.hola.com/imagenes/cocina/recetas/20190612143811/receta-limonada-frutos-rojos/0-690-251/receta-limonada-frutos-rojos-m.jpg",
+            "description": ""
+        }
+    ]
+}

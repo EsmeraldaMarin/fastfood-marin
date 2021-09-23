@@ -1,57 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../components/Items/ItemDetail';
+import { useParams } from 'react-router';
 
-
-/*  const [product, setProduct] = useState({})
-    const { id } = useParams()
-    useEffect(() => {
-        fetch(`http://localhost:3001/products/${id}`)
-            .then(res => res.json())
-            .then(data => setProduct(data))
-            .catch(err => console.log(err))
-    }, [id]) */
-
-const getItem = () => {
-    return new Promise((res) => {
-        setTimeout(() => {
-            res({
-                id: "1",
-                title: "hamburguesa",
-                price: 500,
-                pictureUrl: "https://d1uz88p17r663j.cloudfront.net/original/8689e8d974203563ddcc9bbff91323c2_MG_CHORIZOBURGER_Main-880x660.png",
-                description: "Hamburguesa simple con cebolla, tomate, lechuga"
-            })
-        }, 2000);
-    });
-
-}
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(false);
+    const { id } = useParams();
+
+
+    const onAddFuncion = (count) => {
+        console.log(`Has añadido al carrito ${count} productos`);
+
+    }
 
     useEffect(() => {
-        setLoading(true);
-        getItem()
-            .then((data) => setItem(data))
-            .finally(()=> setLoading(false))
-    }, []);
+        setLoading(true)
+        fetch(`http://localhost:3001/products/${id}`)
+            .then(res => res.json())
+            .then(data => setItem(data))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
 
-    if(loading){
+    }, [id])
+
+
+    if (loading) {
         return <p>Cargando...</p>
-    }else{
+    } else {
         return (
             <div className="itemDetailCtn">
-    
+                <h2>Detalle del producto</h2>
                 < ItemDetail
                     id={item?.id}
                     title={item?.title}
                     price={item?.price}
                     pictureUrl={item?.pictureUrl}
                     description={item?.description}
+                    onAddFunction = {onAddFuncion}
                 />
-    
+
             </div>
         )
     }

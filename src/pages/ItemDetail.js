@@ -1,14 +1,13 @@
 import React from 'react';
 import ItemDetailContainer from '../containers/ItemDetailContainer';
 
-const ProductDetail = () => {
+const ItemDetail = () => {
    
     return (
         <div>
-            <h1>Product Detail</h1>
             <ItemDetailContainer/>
         </div>
     )
 }
 
-export default ProductDetail
+export default ItemDetail

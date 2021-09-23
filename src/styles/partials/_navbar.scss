@@ -14,7 +14,6 @@
     > ul {
         display: flex;
         @media (max-width: 1000px) {
-            display: none;
         }
         li {
             padding: 0.5rem 1.5rem;

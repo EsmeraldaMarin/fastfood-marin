@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# FAST FOOD - MARIN
+(readme provisorio)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Proyect
 
-## Available Scripts
 
-In the project directory, you can run:
+- DEVELOPER: ESMERALDA MARIN
+- GITHUB: https://github.com/EsmeraldaMarin
+- EMAIL: esmemarinm03@gmail.com
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Fast food is an e-commerce project that offers the user the possibility of buying food according to their needs.
+React technology is implemented to be able to perform the functions and procedures of the app, from the moment it is entered, until the moment of purchase of the product (s).
 
-### `npm test`
+### Technologies used in this project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- REACT
+- GIT AND GITHUB 
+- NODE.JS
+- Dependencies:
+    - react
+    - react-dom
+    - react-router-dom
+    - react-scripts
+    - json-server (https://www.npmjs.com/package/json-server)
+- HTML
+- CSS (SASS)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started 🚀
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In this README.md you will find the specifications to install, initialize and use this application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation ⚙️
 
-### `npm run eject`
+- Clone this repository:
+    https://github.com/EsmeraldaMarin/fastfood-marin.git
+- Install the dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    _Use_
+    ```
+    npm install
+    ```
+     _or_
+    ```
+    npm i
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Dependencies:
+    ```
+     {
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-router-dom": "^5.3.0",
+        "react-scripts": "4.0.3",
+        "web-vitals": "^1.1.2"
+    }
+    ```
+    and json-server using the following command
+    
+    ```
+    npm i json-server
+    ```
+    
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Initialization ⚙️
+- Initialize the server
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    - Open a terminal and write the following line to run the server
 
-## Learn More
+    ```
+    json-server --watch src/mocks/db.json --port 3001
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    NOTE: The ports that are used in this project are in example mode, you can change them, but be careful because in the code they are used several times. We recommend not changing them for your convenience.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - In another terminal, and without closing the previous one, run the following line to initialize the program
 
-### Code Splitting
+    ```
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To be continue...

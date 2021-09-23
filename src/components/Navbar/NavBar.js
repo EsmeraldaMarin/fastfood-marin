@@ -5,14 +5,13 @@ function NavBar() {
     return (
         <nav className="navbar">
             <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/counter'>Counter</Link></li>
-                <li>Drinks</li>
-                <li>Vegan</li>
+                <Link to='/'><li>Home</li></Link>
+                <Link to='/category/1'><li>Comida Rápida</li></Link>
+                <Link to='/category/2'><li>Pasta</li></Link>
+                <Link to='/category/3'><li>Bebidas</li></Link>
             </ul>
             <Link to="/">FastFood</Link>
             <CartWidget />
-            <button className='loginBtn'>LogIn</button>
         </nav>
     )
 }
