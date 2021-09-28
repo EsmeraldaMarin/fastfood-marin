@@ -9,12 +9,6 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false);
     const { id } = useParams();
 
-
-    const onAddFuncion = (count) => {
-        console.log(`Has añadido al carrito ${count} productos`);
-
-    }
-
     useEffect(() => {
         setLoading(true)
         fetch(`http://localhost:3001/products/${id}`)
@@ -33,12 +27,12 @@ const ItemDetailContainer = () => {
             <div className="itemDetailCtn">
                 <h2>Detalle del producto</h2>
                 < ItemDetail
+                    item = {item}
                     id={item?.id}
                     title={item?.title}
                     price={item?.price}
                     pictureUrl={item?.pictureUrl}
                     description={item?.description}
-                    onAddFunction = {onAddFuncion}
                 />
 
             </div>

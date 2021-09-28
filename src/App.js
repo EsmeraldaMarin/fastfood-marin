@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ItemDetail from "./pages/ItemDetail";
 import ItemListContainer from "./containers/ItemListContainer";
+import Cart from "./pages/Cart"
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/cart" component={Cart} />
         <Route exact path="/category/:categoryId" component={ItemListContainer} />
         <Route exact path="/item/:id" component={ItemDetail} />
-        <Route exact path="*" component={NotFound}/>
+        <Route exact path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

@@ -207,6 +207,13 @@ a {
   padding: 100px;
 }
 
+@media (max-width: 1000px) {
+  .itemDetailCtn {
+    width: 100%;
+    padding: 50px;
+  }
+}
+
 .itemDetailCtn > h2 {
   margin-bottom: 30px;
 }
@@ -251,5 +258,10 @@ a {
 
 .itemDetailCtn .itemDetail .d {
   margin-bottom: 10px;
+}
+
+.itemDetailCtn .itemDetail .finalizeBtn {
+  padding: 0.5rem 1rem;
+  background-color: #ffb830;
 }
 /*# sourceMappingURL=index.css.map */
