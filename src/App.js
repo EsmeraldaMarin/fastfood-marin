@@ -5,18 +5,21 @@ import NotFound from "./pages/NotFound";
 import ItemDetail from "./pages/ItemDetail";
 import ItemListContainer from "./containers/ItemListContainer";
 import Cart from "./pages/Cart"
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/cart" component={Cart} />
-        <Route exact path="/category/:categoryId" component={ItemListContainer} />
-        <Route exact path="/item/:id" component={ItemDetail} />
-        <Route exact path="*" component={NotFound} />
-      </Switch>
+      <CartProvider>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/category/:categoryId" component={ItemListContainer} />
+          <Route exact path="/item/:id" component={ItemDetail} />
+          <Route exact path="*" component={NotFound} />
+        </Switch>
+      </CartProvider>
     </BrowserRouter>
   );
 }

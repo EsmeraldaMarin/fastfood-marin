@@ -1,17 +1,21 @@
 import CartWidget from "../CartWidget";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext'
 
 function NavBar() {
+
+    const { cart } = useCart();
+
     return (
         <nav className="navbar">
             <ul>
-                <Link to='/'><li>Home</li></Link>
-                <Link to='/category/1'><li>Comida Rápida</li></Link>
-                <Link to='/category/2'><li>Pasta</li></Link>
-                <Link to='/category/3'><li>Bebidas</li></Link>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/category/1'>Comida Rápida</Link></li>
+                <li><Link to='/category/2'>Pasta</Link></li>
+                <li><Link to='/category/3'>Bebidas</Link></li>
             </ul>
             <Link to="/">FastFood</Link>
-            <CartWidget />
+            <CartWidget numProducts={cart.length} />
         </nav>
     )
 }

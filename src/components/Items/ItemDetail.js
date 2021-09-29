@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import ItemCount from '../ItemCount';
+import { useCart } from '../../context/CartContext'
 
+const ItemDetail = ({ item }) => {
 
-const ItemDetail = ({ item}) => {
+    const { addItem } = useCart();
+    const [finalizeBtn, setFinalizeBtn] = useState(false)
 
-    const [productOnAdd, setProductOnAdd] = useState({})
+    const addItemToCart = (item, quantity) => {
 
-    const onAddFuncion = ({product, count}) => {
-        
-        setProductOnAdd({product, count})
-        console.log(`Has añadido al carrito ${count} productos ${product.title}`);
-        console.log(productOnAdd)
+        addItem(item, quantity);
+        setFinalizeBtn(true)
     }
 
     return (
@@ -22,7 +22,11 @@ const ItemDetail = ({ item}) => {
                 <p className="t">{item.title}</p>
                 <p className="d">{item.description}</p>
                 <p className="p">${item.price}</p>
-                {!productOnAdd.product ? <ItemCount initial={1} stock={5} onAdd={onAddFuncion} product={item} /> : <Link className='finalizeBtn' to='/cart'>Finalizar compra</Link>}
+                {
+                    !finalizeBtn ?
+                        <ItemCount initial={1} stock={5} onAdd={addItemToCart} item={item} /> :
+                        <Link className='finalizeBtn' to='/cart'>Finalizar compra</Link>
+                }
             </div>
         </div>
     )
