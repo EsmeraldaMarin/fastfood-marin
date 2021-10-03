@@ -1,9 +1,11 @@
-const CartWidget = ({numProducts}) => {
+import { Link } from "react-router-dom"
+
+const CartWidget = ({ numProducts }) => {
     return (
-        <div className="cartWidget">
+        <Link to='/cart' className="cartWidget">
             <i className="fas fa-shopping-cart"></i>
             <span>{numProducts}</span>
-        </div>
+        </Link>
     )
 }
 

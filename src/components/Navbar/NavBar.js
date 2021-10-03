@@ -14,7 +14,7 @@ function NavBar() {
                 <li><Link to='/category/2'>Pasta</Link></li>
                 <li><Link to='/category/3'>Bebidas</Link></li>
             </ul>
-            <Link to="/">FastFood</Link>
+            <Link to="/" className='logo'>FastFood</Link>
             <CartWidget numProducts={cart.length} />
         </nav>
     )

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../components/Items/ItemDetail';
 import { useParams } from 'react-router';
+import { getFirestore } from '../firebase';
 
 
 const ItemDetailContainer = () => {
@@ -10,12 +11,21 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        setLoading(true)
-        fetch(`http://localhost:3001/products/${id}`)
-            .then(res => res.json())
-            .then(data => setItem(data))
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
+        const db = getFirestore();
+        const productsCollection = db.collection('products');
+        const product = productsCollection.doc(id);
+
+        product
+            .get()
+            .then(doc => {
+                if (!doc.exists) {
+                    console.log('el producto no existe')
+                } else {
+                    setItem({ id: doc.id, ...doc.data() })
+                }
+            })
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false));
 
     }, [id])
 
@@ -27,7 +37,7 @@ const ItemDetailContainer = () => {
             <div className="itemDetailCtn">
                 <h2>Detalle del producto</h2>
                 < ItemDetail
-                    item = {item}
+                    item={item}
                     id={item?.id}
                     title={item?.title}
                     price={item?.price}

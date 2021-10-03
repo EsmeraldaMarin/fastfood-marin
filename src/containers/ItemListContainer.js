@@ -1,6 +1,7 @@
 import ItemList from "../components/Items/ItemList";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
+import { getFirestore } from "../firebase";
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -12,25 +13,27 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
 
-        setLoader(true);
-        fetch('http://localhost:3001/products')
+        const db = getFirestore();
+        const productsCollection = db.collection('products');
 
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
+
+        productsCollection
+            .get()
+            .then(querySnapshot => {
+                if (querySnapshot.empty) {
+                    console.log('no hay productos')
                 } else {
-                    throw response;
+                    setItems(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
                 }
-            })
-            .then((result) => {
-                setItems(result);
             })
             .catch((error) => setError(error))
             .finally(() => setLoader(false));
-    }, [categoryId]);
+
+    }, []);
+
 
     //para diferenciar entre la ruta '/' y la ruta '/category/:id' utilizo el condicional
-    const categoryFilter = items.filter((item) =>  categoryId === undefined ? item : categoryId === item.category.toString() )
+    const categoryFilter = items.filter((item) => categoryId === undefined ? item : categoryId === item.category.toString())
 
     return (
         <div className="itemListContainer">
