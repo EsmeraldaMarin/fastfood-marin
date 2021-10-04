@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 * {
     margin: 0;
     font-family: "Prompt", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
@@ -11,7 +11,63 @@
 li {
     list-style-type: none;
 }
-a{
+a {
     text-decoration: none;
     color: inherit;
+}
+
+.disabled {
+    display: none;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+}
+.loader > div {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+#loader-1:before,
+#loader-1:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 5px solid transparent;
+    border-top-color: $orange;
+}
+
+#loader-1:before {
+    z-index: 100;
+    animation: spin 1s infinite;
+}
+
+#loader-1:after {
+    border: 5px solid #eee;
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }

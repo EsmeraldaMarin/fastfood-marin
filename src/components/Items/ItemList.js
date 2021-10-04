@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import Item from './Item';
 
-const ItemList = ({items, loading, error}) => {
-
+const ItemList = ({ items, loader, error }) => {
     return (
         <ul>
-            {loading && <p>Cargando...</p>}
+            {loader && <div className="loader"><div id="loader-1"></div></div>}
             {error && (<p>Ha habido un error: {error.status} {error.statusText}</p>)}
             {
                 items?.map((item) => {

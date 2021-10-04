@@ -4,7 +4,7 @@ import { useCart } from '../../context/CartContext'
 
 function NavBar() {
 
-    const { cart } = useCart();
+    const { cart, totalQuantity } = useCart();
 
     return (
         <nav className="navbar">
@@ -15,7 +15,7 @@ function NavBar() {
                 <li><Link to='/category/3'>Bebidas</Link></li>
             </ul>
             <Link to="/" className='logo'>FastFood</Link>
-            <CartWidget numProducts={cart.length} />
+            <CartWidget numProducts={totalQuantity()} />
         </nav>
     )
 }

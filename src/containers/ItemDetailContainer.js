@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
         const db = getFirestore();
         const productsCollection = db.collection('products');
         const product = productsCollection.doc(id);
-
+        setLoading(true)
         product
             .get()
             .then(doc => {
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
 
 
     if (loading) {
-        return <p>Cargando...</p>
+        return <div className="loader"><div id="loader-1"></div></div>
     } else {
         return (
             <div className="itemDetailCtn">

@@ -17,6 +17,57 @@ a {
   color: inherit;
 }
 
+.disabled {
+  display: none;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+}
+
+.loader > div {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+#loader-1:before,
+#loader-1:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 5px solid transparent;
+  border-top-color: #ffb830;
+}
+
+#loader-1:before {
+  z-index: 100;
+  animation: spin 1s infinite;
+}
+
+#loader-1:after {
+  border: 5px solid #eee;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .navbar {
   width: 100%;
   height: 60px;
@@ -263,5 +314,101 @@ a {
 .itemDetailCtn .itemDetail .finalizeBtn {
   padding: 0.5rem 1rem;
   background-color: #ffb830;
+}
+
+.cartContainer {
+  padding: 50px 200px;
+}
+
+.cartContainer h2 {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+}
+
+.cartContainer ul.listItemOnCart li.itemOnCartDetail {
+  height: 120px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  position: relative;
+  box-shadow: 0 0 3px #ccc;
+  text-transform: capitalize;
+}
+
+.cartContainer ul.listItemOnCart li.itemOnCartDetail > img {
+  width: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.cartContainer ul.listItemOnCart li.itemOnCartDetail > span {
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 14px);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cartContainer ul.listItemOnCart li.itemOnCartDetail > button {
+  position: absolute;
+  right: 100px;
+  top: calc(50% - 10px);
+  background-color: transparent;
+  color: #c90000;
+}
+
+.cartContainer ul.listItemOnCart li.itemOnCartDetail > button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cartContainer ul.listItemOnCart li.itemOnCartDetail > button:active {
+  color: #ccc;
+}
+
+.cartContainer .totalCtn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.cartContainer .totalCtn span:last-child {
+  margin-left: 50px;
+  font-size: 1.4rem;
+}
+
+.cartContainer .emptyCart {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartContainer .emptyCart p {
+  font-size: 1.1rem;
+}
+
+.cartContainer .emptyCart a {
+  padding: 0.5rem 1rem;
+  background-color: #fad184;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.cartContainer .emptyCart a:hover {
+  background-color: #FFEDDA;
+}
+
+.cartContainer .emptyCart a:active {
+  background-color: #ddd;
 }
 /*# sourceMappingURL=index.css.map */

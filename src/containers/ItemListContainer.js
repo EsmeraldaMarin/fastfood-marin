@@ -5,18 +5,17 @@ import { getFirestore } from "../firebase";
 
 const ItemListContainer = ({ greeting }) => {
 
-
     const [items, setItems] = useState([]);
     const [loader, setLoader] = useState(false);
     const [error, setError] = useState(null);
-    const { categoryId } = useParams();
+    const { categoryKey } = useParams();
 
     useEffect(() => {
 
         const db = getFirestore();
         const productsCollection = db.collection('products');
 
-
+        setLoader(true)
         productsCollection
             .get()
             .then(querySnapshot => {
@@ -33,7 +32,7 @@ const ItemListContainer = ({ greeting }) => {
 
 
     //para diferenciar entre la ruta '/' y la ruta '/category/:id' utilizo el condicional
-    const categoryFilter = items.filter((item) => categoryId === undefined ? item : categoryId === item.category.toString())
+    const categoryFilter = items.filter((item) => categoryKey === undefined ? item : categoryKey === item.category.toString())
 
     return (
         <div className="itemListContainer">
