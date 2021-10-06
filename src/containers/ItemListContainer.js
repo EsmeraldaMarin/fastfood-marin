@@ -32,6 +32,8 @@ const ItemListContainer = ({ greeting }) => {
 
 
     //para diferenciar entre la ruta '/' y la ruta '/category/:id' utilizo el condicional
+    //modificar y usar el where
+    //  const productsCollection = db.collection('products').where('price', '>', 300)
     const categoryFilter = items.filter((item) => categoryKey === undefined ? item : categoryKey === item.category.toString())
 
     return (
