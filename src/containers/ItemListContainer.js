@@ -13,8 +13,10 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
 
         const db = getFirestore();
-        const productsCollection = db.collection('products');
 
+        //filter. It can return all items or by their category
+        let productsCollection = categoryKey ? db.collection('products').where('category', '==', parseInt(categoryKey)) : db.collection('products');
+        
         setLoader(true)
         productsCollection
             .get()
@@ -28,21 +30,15 @@ const ItemListContainer = ({ greeting }) => {
             .catch((error) => setError(error))
             .finally(() => setLoader(false));
 
-    }, []);
-
-
-    //para diferenciar entre la ruta '/' y la ruta '/category/:id' utilizo el condicional
-    //modificar y usar el where
-    //  const productsCollection = db.collection('products').where('price', '>', 300)
-    const categoryFilter = items.filter((item) => categoryKey === undefined ? item : categoryKey === item.category.toString())
+    }, [categoryKey]);
 
     return (
         <div className="itemListContainer">
-            <h2 className="greetingMsg" >{greeting}</h2>
+            <h2 className="greetingMsg" >{greeting? greeting:'Resultado'}</h2>
             <ItemList
                 loader={loader}
                 error={error}
-                items={categoryFilter}
+                items={items}
             />
         </div>
     )

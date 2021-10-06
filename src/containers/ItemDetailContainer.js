@@ -29,7 +29,6 @@ const ItemDetailContainer = () => {
 
     }, [id])
 
-
     if (loading) {
         return <div className="loader"><div id="loader-1"></div></div>
     } else {

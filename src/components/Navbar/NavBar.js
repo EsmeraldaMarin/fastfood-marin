@@ -4,7 +4,7 @@ import { useCart } from '../../context/CartContext'
 
 function NavBar() {
 
-    const { cart, totalQuantity } = useCart();
+    const { totalQuantity } = useCart();
 
     return (
         <nav className="navbar">
