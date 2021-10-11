@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import ItemCount from '../ItemCount';
-import { useCart } from '../../context/CartContext'
+import { UseCart } from '../../context/CartContext'
 
 const ItemDetail = ({ item }) => {
 
-    const { addItem } = useCart();
+    const { addItem } = UseCart();
     const [finalizeBtn, setFinalizeBtn] = useState(false)
 
     const addItemToCart = (item, quantity) => {
@@ -24,7 +24,7 @@ const ItemDetail = ({ item }) => {
                 <p className="p">${item.price}</p>
                 {
                     !finalizeBtn ?
-                        <ItemCount initial={1} stock={5} onAdd={addItemToCart} item={item} /> :
+                        <ItemCount initial={1} stock={item.stock} onAdd={addItemToCart} item={item} /> :
                         <Link className='finalizeBtn' to='/cart'>Finalizar compra</Link>
                 }
             </div>

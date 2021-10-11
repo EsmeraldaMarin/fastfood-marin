@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import ListItemOnCart from '../components/Cart/ListItemOnCart';
-import { useCart } from '../context/CartContext';
+import { UseCart } from '../context/CartContext';
 import { getFirestore } from '../firebase';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
@@ -9,7 +9,7 @@ import "firebase/compat/firestore";
 
 
 const CartContainer = () => {
-    const { cart, removeItem, totalAmount } = useCart();
+    const { cart, removeItem, totalAmount } = UseCart();
     const db = getFirestore();
     const orderCollection = db.collection('orders');
 
@@ -58,8 +58,10 @@ const CartContainer = () => {
                         <span>TOTAL</span>
                         <span>${totalAmount()}</span>
                     </div>
-                    <button onClick={() => handleCheckout()}>Finalizar la compra</button>
-                    <button onClick={() => handleUpdate()}>Modificar orden</button>
+                    <div className='btnSection'>
+                       {/* <button onClick={() => handleUpdate()}>Modificar orden</button>*/}
+                        <button onClick={() => handleCheckout()}>Finalizar la compra</button>
+                    </div>
                 </div>
                 :
                 <div className='emptyCart'>

@@ -16,7 +16,6 @@ const ItemCount = ({ stock, initial, onAdd, item }) => {
 
     return (
         <div className="itemCountCtn">
-            <span>{item.title}</span>
             <div className="counter">
                 <button onClick={substrCount}>-</button>
                 <p>{count}</p>

@@ -9,7 +9,6 @@ export const CartProvider = ({ children }) => {
     const addItem = (item, quantity) => {
 
         if (isInCart(item.id)) {
-
             updateQuantity(item.id, quantity)
         } else {
 
@@ -18,7 +17,18 @@ export const CartProvider = ({ children }) => {
             setCart(prevCart => [...prevCart, newItem])
         }
     }
+    const updateItemOnCart = (id, quantity) => {
+        let itemOnCart = cart.filter(product => product.id === id)
+        itemOnCart[0].quantity = quantity;
+        const updatedCart = cart.map(product => {
 
+            if (product.id === id) {
+                return itemOnCart[0]
+            }
+            return product
+        })
+        setCart(updatedCart);
+    }
     const removeItem = (id) => {
         const cartWithProdRemoved = cart.filter(item => item.id !== id)
         setCart(cartWithProdRemoved);
@@ -53,10 +63,10 @@ export const CartProvider = ({ children }) => {
         return total
     }
 
-    return <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, totalQuantity, totalAmount }}> {children} </CartContext.Provider>
+    return <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, totalQuantity, totalAmount, updateItemOnCart }}> {children} </CartContext.Provider>
 }
 
-export const useCart = () => {
+export const UseCart = () => {
     const context = useContext(CartContext);
     if (!context) {
         throw new Error('El hook useCart debe ser usado dentro de un CartProvider. No seas pavo')
