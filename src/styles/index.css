@@ -346,6 +346,7 @@ a {
 
 .cartContainer {
   padding: 50px 200px;
+  height: calc(100vh - 60px);
 }
 
 .cartContainer h2 {
@@ -467,5 +468,125 @@ a {
 
 .cartContainer .emptyCart a:active {
   background-color: #ddd;
+}
+
+.orderDetail {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+}
+
+.orderDetail .successMsg {
+  width: 40%;
+  border-right: 2px solid #ccc;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderDetail .successMsg p {
+  line-height: 45px;
+}
+
+.orderDetail .successMsg b {
+  font-size: 1.2rem;
+  background-color: #ddd;
+  padding: 0 1rem;
+  border-radius: 20px;
+  display: block;
+}
+
+.orderDetail .successMsg a {
+  padding: 0.3rem 0.8rem;
+  background-color: #00ad00;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.orderDetail .successMsg i {
+  color: #00ad00;
+  font-size: 5rem;
+  margin: 20px 0;
+}
+
+.orderDetail .detail {
+  width: 60%;
+  padding: 0 50px;
+  position: relative;
+}
+
+.orderDetail .detail .tableRef {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 0 5px;
+  display: grid;
+  grid-template-columns: 0.5fr 1.7fr 0.8fr;
+}
+
+.orderDetail .detail .detailList {
+  box-shadow: 0 0 3px #aaa;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.orderDetail .detail .detailList .itemDetailOnOrder {
+  text-transform: capitalize;
+  display: grid;
+  grid-template-columns: 0.5fr 1.7fr 0.8fr;
+  padding: 5px 0;
+}
+
+.orderDetail .detail .detailList .itemDetailOnOrder > div {
+  padding-left: 10px;
+  border-left: 1px solid #ddd;
+}
+
+.orderDetail .detail .detailList .itemDetailOnOrder > div:first-child {
+  border-left: 0;
+  text-align: center;
+  padding: 0;
+}
+
+.orderDetail .detail .totalAmount {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2.2fr 0.8fr;
+}
+
+.orderDetail .detail .totalAmount h4 {
+  text-align: end;
+  padding-right: 40px;
+}
+
+.orderDetail .detail .totalAmount > p {
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.orderDetail .detail .btnSection {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+
+.orderDetail .detail .btnSection button {
+  margin-left: 10px;
+}
+
+.orderDetail .detail .btnSection button:hover {
+  background-color: #fad184;
+}
+
+.orderDetail .detail .btnSection button:first-child {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 100%;
+}
+
+.orderDetail .detail .btnSection button:first-child:hover {
+  background-color: #eee;
 }
 /*# sourceMappingURL=index.css.map */

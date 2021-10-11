@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import ListItemOnCart from '../components/Cart/ListItemOnCart';
 import { UseCart } from '../context/CartContext';
 import { getFirestore } from '../firebase';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import OrderList from './OrderCtn';
 
 
 
 const CartContainer = () => {
     const { cart, removeItem, totalAmount } = UseCart();
+    const [orderRequest, setOrderRequest] = useState(false)
     const db = getFirestore();
     const orderCollection = db.collection('orders');
 
@@ -32,7 +34,7 @@ const CartContainer = () => {
         const newOrder = createOrder()
         orderCollection
             .add(newOrder)
-            .then(docRef => console.log('se creo el documento exitosamente', docRef.id))
+            .then(docRef => setOrderRequest(docRef))
             .catch(err => console.log(err))
             .finally(load => console.log('operacion finalizada'))
 
@@ -52,17 +54,19 @@ const CartContainer = () => {
         <div className='cartContainer'>
             <h2>Tu carrito</h2>
             {cart.length !== 0 ?
-                <div>
-                    <ListItemOnCart cart={cart} removeItem={removeItem} />
-                    <div className='totalCtn'>
-                        <span>TOTAL</span>
-                        <span>${totalAmount()}</span>
+                orderRequest ?
+                    <OrderList cart={cart} orderId={orderRequest.id} />:
+                    <div>
+                        <ListItemOnCart cart={cart} removeItem={removeItem} />
+                        <div className='totalCtn'>
+                            <span>TOTAL</span>
+                            <span>${totalAmount()}</span>
+                        </div>
+                        <div className='btnSection'>
+                            {/* <button onClick={() => handleUpdate()}>Modificar orden</button>*/}
+                            <button onClick={() => handleCheckout()}>Finalizar la compra</button>
+                        </div>
                     </div>
-                    <div className='btnSection'>
-                       {/* <button onClick={() => handleUpdate()}>Modificar orden</button>*/}
-                        <button onClick={() => handleCheckout()}>Finalizar la compra</button>
-                    </div>
-                </div>
                 :
                 <div className='emptyCart'>
                     <p>No hay productos en tu carrito</p>
