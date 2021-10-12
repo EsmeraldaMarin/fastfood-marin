@@ -6,6 +6,7 @@ export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([])
 
+    //Agrega un nuevo item al cart con la cantidad correspondiente
     const addItem = (item, quantity) => {
 
         if (isInCart(item.id)) {
@@ -17,6 +18,8 @@ export const CartProvider = ({ children }) => {
             setCart(prevCart => [...prevCart, newItem])
         }
     }
+
+    //actualiza en el cart la cantidad de items que el usuario esta pidiendo
     const updateItemOnCart = (id, quantity) => {
         let itemOnCart = cart.filter(product => product.id === id)
         itemOnCart[0].quantity = quantity;
@@ -29,18 +32,24 @@ export const CartProvider = ({ children }) => {
         })
         setCart(updatedCart);
     }
+
+    //elimina todas las unidades de un item del cart
     const removeItem = (id) => {
         const cartWithProdRemoved = cart.filter(item => item.id !== id)
         setCart(cartWithProdRemoved);
     }
-    const clear = () => {
-        setCart([])
-    }
+
+    //vacia todo el cart
+    const cleanCart = () => setCart([])
+
+    //booleano que determina la existencia de un prod en el cart
     const isInCart = (id) => {
         let duplicatedProduct = cart.some(product => product.id === id)
         if (duplicatedProduct) { return true }
         return false
     }
+
+    //actualiza la cantidad de productos que se agregan al cart si el producto ya se encontraba ahi
     const updateQuantity = (id, quantityToAdd) => {
         const updatedCart = cart.map(product => {
 
@@ -52,18 +61,22 @@ export const CartProvider = ({ children }) => {
         })
         setCart(updatedCart);
     }
+
+    //devuelve el total de prod en el cart
     const totalQuantity = () => {
         let total = 0;
         cart.forEach(item => total += item.quantity)
         return total
     }
+
+    //devuelve el precio total de todos los prod del cart
     const totalAmount = () => {
         let total = 0;
         cart.forEach(item => total += item.quantity * item.price)
         return total
     }
 
-    return <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, totalQuantity, totalAmount, updateItemOnCart }}> {children} </CartContext.Provider>
+    return <CartContext.Provider value={{ cart, addItem, removeItem, cleanCart, isInCart, totalQuantity, totalAmount, updateItemOnCart }}> {children} </CartContext.Provider>
 }
 
 export const UseCart = () => {

@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import ListItemOnCart from '../components/Cart/ListItemOnCart';
 import { UseCart } from '../context/CartContext';
 import { getFirestore } from '../firebase';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import OrderList from './OrderCtn';
-
-
+import OrderCtn from './OrderCtn';
 
 const CartContainer = () => {
-    const { cart, removeItem, totalAmount } = UseCart();
+    const { cart, removeItem, totalAmount, cleanCart } = UseCart();
     const [orderRequest, setOrderRequest] = useState(false)
+    let history = useHistory()
     const db = getFirestore();
     const orderCollection = db.collection('orders');
 
+    //crear orden con los productos del carrito y los datos del user
     const createOrder = () => {
         const newOrder = {
             buyer: {
@@ -25,29 +25,45 @@ const CartContainer = () => {
             items: cart,
             total: totalAmount(),
             date: firebase.firestore.FieldValue.serverTimestamp()
-
         }
         return newOrder
     }
+
+    //actualiza stocks luego de realizar la orden
+    const updateStocks = () => {
+
+        cart.forEach(item => {
+
+            const productsCollection = db.collection('products')
+            const updateCollection = productsCollection.doc(item.id);
+            updateCollection
+                .update({ stock: item.stock - item.quantity })
+
+        })
+    }
+
+    //maneja la peticion de la orden, la envia a la bd y capta los resultados(el id)
     const handleCheckout = () => {
 
         const newOrder = createOrder()
         orderCollection
             .add(newOrder)
-            .then(docRef => setOrderRequest(docRef))
+            .then(docRef => {
+                setOrderRequest(docRef)
+            })
             .catch(err => console.log(err))
-            .finally(load => console.log('operacion finalizada'))
+            .finally(updateStocks())
 
     }
-    const handleUpdate = () => {
-
+    /* const handleUpdate = () => {
         const productRef = orderCollection.doc("poner el id")
         productRef.update({ quantity: 2 })
-    }
-    const handleRemove = () => {
+    } */
 
-        const productRef = orderCollection.doc("poner el id")
-        productRef.delete()
+    //borra una orden de la coleccion en la bd
+    const handleRemove = () => {
+        const productRef = orderCollection.doc(orderRequest.id)
+        productRef.delete().then(() => { history.push('/') })
     }
 
     return (
@@ -55,7 +71,7 @@ const CartContainer = () => {
             <h2>Tu carrito</h2>
             {cart.length !== 0 ?
                 orderRequest ?
-                    <OrderList cart={cart} orderId={orderRequest.id} />:
+                    <OrderCtn cart={cart} orderId={orderRequest.id} removeOrder={handleRemove} cleanCart={cleanCart} /> :
                     <div>
                         <ListItemOnCart cart={cart} removeItem={removeItem} />
                         <div className='totalCtn'>

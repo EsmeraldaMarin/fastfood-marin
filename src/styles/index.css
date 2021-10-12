@@ -398,7 +398,6 @@ a {
   top: calc(50% - 20px);
   background-color: transparent;
   font-size: 1rem;
-  color: #c90000;
 }
 
 .cartContainer ul.listItemOnCart li.itemOnCartDetail > button:hover {
@@ -478,7 +477,7 @@ a {
 
 .orderDetail .successMsg {
   width: 40%;
-  border-right: 2px solid #ccc;
+  border-left: 2px solid #ccc;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -513,7 +512,7 @@ a {
 
 .orderDetail .detail {
   width: 60%;
-  padding: 0 50px;
+  padding-right: 50px;
   position: relative;
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemCount = ({ stock, initial, onAdd, item }) => {
 
@@ -15,17 +16,27 @@ const ItemCount = ({ stock, initial, onAdd, item }) => {
 
 
     return (
-        <div className="itemCountCtn">
-            <div className="counter">
-                <button onClick={substrCount}>-</button>
-                <p>{count}</p>
-                <button onClick={increaseCount}>+</button>
-            </div>
-            <button
-                className="addProdBtn"
-                onClick={itemOnAddDetails}
-            > Agregar al carrito</button>
-        </div>
+        <>
+            {
+                stock === 0 ?
+                    <div className="itemCountCtn" style={{ textTransform: 'none', backgroundColor: 'transparent', padding: 0 }}>
+                        <p>Sin stock</p>
+                        <Link to='/' style={{ color: '#ffb830', textDecoration: 'underline' }}>Volver al inicio</Link>
+                    </div>
+                    :
+                    <div className="itemCountCtn">
+                        <div className="counter">
+                            <button onClick={substrCount}>-</button>
+                            <p>{count}</p>
+                            <button onClick={increaseCount}>+</button>
+                        </div>
+                        <button
+                            className="addProdBtn"
+                            onClick={itemOnAddDetails}
+                        > Agregar al carrito</button>
+                    </div>
+            }
+        </>
     )
 }
 

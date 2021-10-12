@@ -10,7 +10,6 @@ const ItemDetail = ({ item }) => {
     const [finalizeBtn, setFinalizeBtn] = useState(false)
 
     const addItemToCart = (item, quantity) => {
-
         addItem(item, quantity);
         setFinalizeBtn(true)
     }

@@ -2,7 +2,7 @@ import React from 'react'
 import OrderDetailItem from './OrderDetailItem';
 import { UseCart } from '../../context/CartContext';
 
-const OrderDetailTable = ({ cart }) => {
+const OrderDetailTable = ({ cart, removeOrder }) => {
 
     const { totalAmount } = UseCart()
 
@@ -24,7 +24,7 @@ const OrderDetailTable = ({ cart }) => {
                 <p>${totalAmount()}</p>
             </div>
             <div className='btnSection'>
-                <button className="fas fa-trash"/>
+                <button className="fas fa-trash" onClick={() => removeOrder()} />
                 <button>Editar Orden</button>
             </div>
         </div>
