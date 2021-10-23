@@ -342,6 +342,8 @@ header .logo {
   align-items: center;
   background-color: #FFEDDA;
   font-size: 1.2em;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .itemCountCtnSimple button {
@@ -487,6 +489,7 @@ header .logo {
 .itemDetailCtn .itemDetail .finalizeBtn {
   padding: 0.5rem 1rem;
   background-color: #ffb830;
+  border-radius: 15px;
 }
 
 .cartContainer {
@@ -612,6 +615,49 @@ header .logo {
 
 .cartContainer .emptyCart a:active {
   background-color: #ddd;
+}
+
+@media (max-width: 1000px) {
+  .cartContainer {
+    padding: 40px 20px;
+  }
+  .cartContainer h2 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .cartContainer ul.listItemOnCart {
+    font-size: 0.9em;
+  }
+  .cartContainer ul.listItemOnCart li.itemOnCartDetail {
+    height: 100px;
+    padding: 10px;
+  }
+  .cartContainer ul.listItemOnCart li.itemOnCartDetail > img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  .cartContainer ul.listItemOnCart li.itemOnCartDetail .itemCountCtnSimple {
+    top: inherit;
+    right: inherit;
+    bottom: 10px;
+    left: 80px;
+    height: 25px;
+    width: 80px;
+  }
+  .cartContainer ul.listItemOnCart li.itemOnCartDetail .itemCountCtnSimple > button {
+    width: 25px;
+  }
+  .cartContainer ul.listItemOnCart li.itemOnCartDetail > button {
+    top: inherit;
+    right: inherit;
+    bottom: 0;
+    left: 200px;
+  }
+  .cartContainer ul.listItemOnCart li.itemOnCartDetail > span {
+    top: inherit;
+    bottom: 5px;
+  }
 }
 
 .orderDetail {

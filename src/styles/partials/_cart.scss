@@ -79,7 +79,7 @@
             background-color: $orange;
             font-size: 1rem;
 
-           /*  margin-right: 20px;
+            /*  margin-right: 20px;
             background-color: $cream;
             font-size: 0.8rem; */
         }
@@ -104,6 +104,47 @@
             }
             &:active {
                 background-color: #ddd;
+            }
+        }
+    }
+    @media (max-width: 1000px) {
+        padding: 40px 20px;
+        h2 {
+            font-size: 1.2em;
+            text-align: center;
+        }
+        ul.listItemOnCart {
+            font-size: 0.9em;
+            li.itemOnCartDetail {
+                // box-shadow: none;
+                height: 100px;
+                padding: 10px;
+                > img {
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                }
+                .itemCountCtnSimple {
+                    top: inherit;
+                    right: inherit;
+                    bottom: 10px;
+                    left: 80px;
+                    height: 25px;
+                    width: 80px;
+                    > button {
+                        width: 25px;
+                    }
+                }
+                > button {
+                    top: inherit;
+                    right: inherit;
+                    bottom: 0;
+                    left: 200px;
+                }
+                > span {
+                    top: inherit;
+                    bottom: 5px;
+                }
             }
         }
     }
