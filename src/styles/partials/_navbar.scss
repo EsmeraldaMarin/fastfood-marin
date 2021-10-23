@@ -7,6 +7,7 @@ header {
     justify-content: space-around;
     align-items: center;
     background-color: $orange;
+    z-index: 1000;
     @media (max-width: 1000px) {
         background-color: #fff;
         .burguerMenu span {
@@ -33,6 +34,9 @@ header {
                 height: calc(100vh - 40px);
                 width: 65%;
                 transition: width 0.5s ease;
+                ul {
+                    display: flex;
+                }
             }
         }
     }
@@ -54,24 +58,9 @@ header {
         }
     }
     .navbar {
-        @media (max-width: 1000px) {
-            height: calc(100vh - 40px);
-            width: 0;
-            overflow: hidden;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            background-color:$cream ;
-            transition: width 0.5s ease;
-        }
-
         > ul {
             display: flex;
-            @media (max-width: 1000px) {
-                flex-direction: column;
-            }
             li {
-                padding: 0.5rem 1.5rem;
                 &:hover {
                     font-weight: bold;
                     text-decoration: underline;
@@ -80,22 +69,43 @@ header {
                 &:active {
                     color: rgb(68, 68, 68);
                 }
+                a {
+                    display: block;
+                    padding: 0.5rem 1.5rem;
+                    &.selected{
+                        cursor: not-allowed;
+                    }
+                }
+            }
+            @media (max-width: 1000px) {
+                flex-direction: column;
+                li {
+                    &:hover {
+                        text-decoration: none;
+                        font-weight: normal;
+                    }
+                    a.selected {
+                        background-color: $orange2;
+                    }
+                }
             }
         }
-        .loginBtn {
-            width: 100px;
-            height: 30px;
-            //border-radius: 15px;
-            background-color: $cream;
-            transition: background-color 0.25s ease;
-            &:hover {
-                background-color: $orange2;
-                cursor: pointer;
-            }
-            &:active {
-                background-color: $cream;
+        @media (max-width: 1000px) {
+            height: calc(100vh - 40px);
+            width: 0;
+            padding-top: 50px;
+            overflow: hidden;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: $orange;
+            transition: width 0.5s ease;
+            ul {
+                display: none;
             }
         }
+
+
     }
     .cartWidget {
         height: 100%;

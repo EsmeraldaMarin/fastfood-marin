@@ -14,6 +14,9 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
 
+        //reseteo de error 
+        if (error) { setError(null) }
+        
         const db = getFirestore();
 
         //filter. It can return all items or by their category
@@ -36,13 +39,15 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div className="itemListContainer">
-            {error && (<NotFound />)}
-
-            <ItemList
-                loader={loader}
-                error={error}
-                items={items}
-            />
+            {
+                error ?
+                    <NotFound /> :
+                    <ItemList
+                        loader={loader}
+                        error={error}
+                        items={items}
+                    />
+            }
         </div>
     )
 }

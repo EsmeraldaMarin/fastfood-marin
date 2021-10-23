@@ -109,6 +109,7 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: #ffb830;
+  z-index: 1000;
 }
 
 @media (max-width: 1000px) {
@@ -147,6 +148,10 @@ header.bMenuActive .burguerMenu ~ nav {
   transition: width 0.5s ease;
 }
 
+header.bMenuActive .burguerMenu ~ nav ul {
+  display: flex;
+}
+
 header .burguerMenu {
   display: none;
 }
@@ -168,31 +173,8 @@ header .burguerMenu span {
   transition: all 0.25s ease;
 }
 
-@media (max-width: 1000px) {
-  header .navbar {
-    height: calc(100vh - 40px);
-    width: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #FFEDDA;
-    transition: width 0.5s ease;
-  }
-}
-
 header .navbar > ul {
   display: flex;
-}
-
-@media (max-width: 1000px) {
-  header .navbar > ul {
-    flex-direction: column;
-  }
-}
-
-header .navbar > ul li {
-  padding: 0.5rem 1.5rem;
 }
 
 header .navbar > ul li:hover {
@@ -205,20 +187,43 @@ header .navbar > ul li:active {
   color: #444444;
 }
 
-header .navbar .loginBtn {
-  width: 100px;
-  height: 30px;
-  background-color: #FFEDDA;
-  transition: background-color 0.25s ease;
+header .navbar > ul li a {
+  display: block;
+  padding: 0.5rem 1.5rem;
 }
 
-header .navbar .loginBtn:hover {
-  background-color: #fad184;
-  cursor: pointer;
+header .navbar > ul li a.selected {
+  cursor: not-allowed;
 }
 
-header .navbar .loginBtn:active {
-  background-color: #FFEDDA;
+@media (max-width: 1000px) {
+  header .navbar > ul {
+    flex-direction: column;
+  }
+  header .navbar > ul li:hover {
+    text-decoration: none;
+    font-weight: normal;
+  }
+  header .navbar > ul li a.selected {
+    background-color: #fad184;
+  }
+}
+
+@media (max-width: 1000px) {
+  header .navbar {
+    height: calc(100vh - 40px);
+    width: 0;
+    padding-top: 50px;
+    overflow: hidden;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #ffb830;
+    transition: width 0.5s ease;
+  }
+  header .navbar ul {
+    display: none;
+  }
 }
 
 header .cartWidget {

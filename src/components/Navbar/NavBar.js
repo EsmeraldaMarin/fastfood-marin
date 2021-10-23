@@ -1,5 +1,5 @@
 import CartWidget from "../CartWidget";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { UseCart } from '../../context/CartContext'
 import BurgerMenu from "./BurgerMenu";
 import { useState } from "react";
@@ -10,16 +10,24 @@ function NavBar() {
     const [burgerMenu, setBurgerMenu] = useState(false);
 
     const toggleBurgerMenu = () => burgerMenu ? setBurgerMenu(false) : setBurgerMenu(true)
+    
+    //cierra el menu si el user clickea fuera de el
+    document.addEventListener('click', function (event) {
+        if (event.target.parentElement.id !== 'header' && event.target.id !== 'navBar') {
+            setBurgerMenu(false)
+        }
+    });
 
     return (
-        <header className={burgerMenu ? 'bMenuActive' : ''}>
+        <header id='header' className={burgerMenu ? 'bMenuActive' : ''}>
             <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} />
-            <nav className='navbar'>
+            <nav className='navbar' id='navBar'>
                 <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/category/1'>Comida Rápida</Link></li>
-                    <li><Link to='/category/2'>Pasta</Link></li>
-                    <li><Link to='/category/3'>Bebidas</Link></li>
+                    <li><NavLink exact to='/' activeClassName='selected'>Home</NavLink></li>
+                    <li><NavLink to='/category/1' activeClassName='selected'>Comida Rápida</NavLink></li>
+                    <li><NavLink to='/category/2' activeClassName='selected'>Pasta</NavLink></li>
+                    <li><NavLink to='/category/3' activeClassName='selected'>Bebidas</NavLink></li>
+                    <li><NavLink to='/category/4' activeClassName='selected'>Postres</NavLink></li>
                 </ul>
             </nav>
             <Link to="/" className='logo'>FastFood</Link>
