@@ -16,7 +16,7 @@ const ItemListContainer = ({ greeting }) => {
 
         //filter. It can return all items or by their category
         let productsCollection = categoryKey ? db.collection('products').where('category', '==', parseInt(categoryKey)) : db.collection('products');
-        
+
         setLoader(true)
         productsCollection
             .get()
@@ -34,7 +34,10 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div className="itemListContainer">
-            <h2 className="greetingMsg" >{greeting? greeting:'Resultado'}</h2>
+            <div className="greetingMsg" >
+                <p>{greeting ? greeting : 'Resultado'}!</p>
+                <p>¿Qué te gustaría comer?</p>
+            </div>
             <ItemList
                 loader={loader}
                 error={error}

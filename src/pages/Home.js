@@ -5,7 +5,7 @@ const Home = () => {
 
     return (
         <div>
-            <ItemListContainer greeting="Welcome, UserX" />
+            <ItemListContainer greeting="Hola, Usuario" />
         </div>
     )
 }

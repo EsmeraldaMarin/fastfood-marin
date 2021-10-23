@@ -68,59 +68,128 @@ a {
   }
 }
 
-.navbar {
-  width: 100%;
-  height: 60px;
+header {
   position: sticky;
   top: 0;
+  width: 100%;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #ffb830;
 }
 
-.navbar .logo {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2em;
-  color: #000;
+@media (max-width: 1000px) {
+  header {
+    background-color: #fff;
+  }
+  header .burguerMenu span {
+    background-color: #fff;
+  }
 }
 
-.navbar > ul {
+header.bMenuActive .burguerMenu {
+  position: relative;
+}
+
+header.bMenuActive .burguerMenu span {
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+header.bMenuActive .burguerMenu span:first-child {
+  transform: rotate(45deg);
+}
+
+header.bMenuActive .burguerMenu span:last-child {
+  transform: rotate(-45deg);
+}
+
+header.bMenuActive .burguerMenu span:nth-child(2) {
+  display: none;
+}
+
+header.bMenuActive .burguerMenu ~ nav {
+  height: calc(100vh - 40px);
+  width: 65%;
+  transition: width 0.5s ease;
+}
+
+header .burguerMenu {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  header .burguerMenu {
+    width: 25px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+header .burguerMenu span {
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  transition: all 0.25s ease;
+}
+
+@media (max-width: 1000px) {
+  header .navbar {
+    height: calc(100vh - 40px);
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #FFEDDA;
+    transition: width 0.5s ease;
+  }
+}
+
+header .navbar > ul {
   display: flex;
 }
 
-.navbar > ul li {
+@media (max-width: 1000px) {
+  header .navbar > ul {
+    flex-direction: column;
+  }
+}
+
+header .navbar > ul li {
   padding: 0.5rem 1.5rem;
 }
 
-.navbar > ul li:hover {
+header .navbar > ul li:hover {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.navbar > ul li:active {
+header .navbar > ul li:active {
   color: #444444;
 }
 
-.navbar .loginBtn {
+header .navbar .loginBtn {
   width: 100px;
   height: 30px;
   background-color: #FFEDDA;
   transition: background-color 0.25s ease;
 }
 
-.navbar .loginBtn:hover {
+header .navbar .loginBtn:hover {
   background-color: #fad184;
   cursor: pointer;
 }
 
-.navbar .loginBtn:active {
+header .navbar .loginBtn:active {
   background-color: #FFEDDA;
 }
 
-.navbar .cartWidget {
+header .cartWidget {
   height: 100%;
   width: 4.5em;
   display: flex;
@@ -129,9 +198,16 @@ a {
   transition: background-color 0.25s ease;
 }
 
-.navbar .cartWidget:hover {
+header .cartWidget:hover {
   background-color: #fad184;
   cursor: pointer;
+}
+
+header .logo {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2em;
+  color: #000;
 }
 
 .itemCountCtn {
@@ -216,10 +292,9 @@ a {
 
 .itemListContainer .greetingMsg {
   width: 100%;
-  height: 150px;
-  text-align: center;
-  line-height: 6;
-  background-color: #FFEDDA;
+  padding-left: 30px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .itemListContainer ul {
@@ -230,16 +305,6 @@ a {
   grid-gap: 20px;
   text-transform: capitalize;
   justify-content: center;
-}
-
-@media (max-width: 1000px) {
-  .itemListContainer ul {
-    margin-top: 50px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 }
 
 .itemListContainer ul li.itemProduct {
@@ -280,6 +345,22 @@ a {
 .itemListContainer ul li.itemProduct p.productPrice {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .itemListContainer ul {
+    margin-top: 50px;
+    width: 100%;
+    grid-template-columns: repeat(2, 150px);
+  }
+  .itemListContainer ul li.itemProduct {
+    width: 150px;
+    padding: 10px;
+  }
+  .itemListContainer ul li.itemProduct img {
+    max-height: 100px;
+    min-height: 100px;
+  }
 }
 
 .itemDetailCtn {
