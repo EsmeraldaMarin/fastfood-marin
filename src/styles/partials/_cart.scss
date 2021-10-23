@@ -1,6 +1,8 @@
 .cartContainer {
-    padding: 50px 200px;
+    width: calc(100% - 400px);
+    padding: 70px 100px;
     height: calc(100vh - 60px);
+    margin: 0 auto;
     h2 {
         border-bottom: 2px solid #ccc;
         margin-bottom: 20px;
@@ -107,7 +109,8 @@
             }
         }
     }
-    @media (max-width: 1000px) {
+    @media (max-width: $bp-phone) {
+        width: auto;
         padding: 40px 20px;
         h2 {
             font-size: 1.2em;

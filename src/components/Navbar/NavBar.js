@@ -13,8 +13,10 @@ function NavBar() {
     
     //cierra el menu si el user clickea fuera de el
     document.addEventListener('click', function (event) {
-        if (event.target.parentElement.id !== 'header' && event.target.id !== 'navBar') {
-            setBurgerMenu(false)
+        if(event.target.id){
+            if (event.target.parentElement.id !== 'header' && event.target.id !== 'navBar') {
+                setBurgerMenu(false)
+            }
         }
     });
 

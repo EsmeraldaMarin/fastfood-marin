@@ -23,7 +23,7 @@ const itemOnCart = ({ item, removeItem }) => {
             </div>
             <ItemCountSimple stock={item.stock} initial={item.quantity} onAdd={updateItemOnCartFunction} item={item} />
             <span>${price}</span>
-            <button onClick={() => removeItem(item.id)} className="fas fa-trash"/>
+            <button onClick={() => removeItem(item.id)} className="fas fa-trash" />
         </li>
     )
 }

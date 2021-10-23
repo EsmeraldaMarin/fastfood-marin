@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ItemCount = ({ stock, initial, onAdd, item }) => {
+const ItemCountSimple = ({ stock, initial, onAdd, item }) => {
 
     const [count, setCount] = useState(initial);
 
@@ -24,5 +24,5 @@ const ItemCount = ({ stock, initial, onAdd, item }) => {
     )
 }
 
-export default ItemCount
+export default ItemCountSimple
 

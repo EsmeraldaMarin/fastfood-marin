@@ -1,19 +1,23 @@
-.notFound{
-    //cuidado con este calc cuando le agregue el titutlo de la cat
-    height: calc(100vh - 200px);
-    width: 80vw;
+.notFound {
+    height: 500px;
+    width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    a{
+    @media (max-width: $bp-phone) {
+        //cuidado con este calc cuando le agregue el titutlo de la cat
+        height: calc(100vh - 200px);
+        width: 80vw;
+    }
+    a {
         background-color: $orange;
         border-radius: 20px;
         padding: 0.5em 1em;
         margin-top: 20px;
     }
-    img{
+    img {
         width: 100%;
     }
 }

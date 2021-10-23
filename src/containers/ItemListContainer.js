@@ -2,7 +2,6 @@ import ItemList from "../components/Items/ItemList";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { getFirestore } from "../firebase";
-import CategoryFilter from "../components/CategoryFilter/CategoryFilter";
 import NotFound from '../pages/NotFound'
 
 const ItemListContainer = ({ greeting }) => {
@@ -14,9 +13,6 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
 
-        //reseteo de error 
-        if (error) { setError(null) }
-        
         const db = getFirestore();
 
         //filter. It can return all items or by their category
@@ -30,12 +26,13 @@ const ItemListContainer = ({ greeting }) => {
                     throw new Error('Ha ocurrido un error')
                 } else {
                     setItems(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                    setError(false)
                 }
             })
             .catch((error) => setError(error))
             .finally(() => setLoader(false));
 
-    }, [categoryKey]);
+    }, [categoryKey, error]);
 
     return (
         <div className="itemListContainer">

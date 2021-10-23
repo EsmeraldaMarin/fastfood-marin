@@ -67,28 +67,32 @@ const CartContainer = () => {
     }
 
     return (
-        <div className='cartContainer'>
-            <h2>Tu carrito</h2>
-            {cart.length !== 0 ?
-                orderRequest ?
-                    <OrderCtn cart={cart} orderId={orderRequest.id} removeOrder={handleRemove} cleanCart={cleanCart} /> :
-                    <div>
-                        <ListItemOnCart cart={cart} removeItem={removeItem} />
-                        <div className='totalCtn'>
-                            <span>TOTAL</span>
-                            <span>${totalAmount()}</span>
+        <>
+            <div className='columnSide l'></div>
+            <div className='cartContainer'>
+                <h2>Tu carrito</h2>
+                {cart.length !== 0 ?
+                    orderRequest ?
+                        <OrderCtn cart={cart} orderId={orderRequest.id} removeOrder={handleRemove} cleanCart={cleanCart} /> :
+                        <div>
+                            <ListItemOnCart cart={cart} removeItem={removeItem} />
+                            <div className='totalCtn'>
+                                <span>TOTAL</span>
+                                <span>${totalAmount()}</span>
+                            </div>
+                            <div className='btnSection'>
+                                {/* <button onClick={() => handleUpdate()}>Modificar orden</button>*/}
+                                <button onClick={() => handleCheckout()}>Finalizar la compra</button>
+                            </div>
                         </div>
-                        <div className='btnSection'>
-                            {/* <button onClick={() => handleUpdate()}>Modificar orden</button>*/}
-                            <button onClick={() => handleCheckout()}>Finalizar la compra</button>
-                        </div>
-                    </div>
-                :
-                <div className='emptyCart'>
-                    <p>No hay productos en tu carrito</p>
-                    <Link to='/'>Ir a Inicio</Link>
-                </div>}
-        </div>
+                    :
+                    <div className='emptyCart'>
+                        <p>No hay productos en tu carrito</p>
+                        <Link to='/'>Ir a Inicio</Link>
+                    </div>}
+            </div>
+            <div className='columnSide r'></div>
+        </>
     )
 }
 
