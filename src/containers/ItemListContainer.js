@@ -2,6 +2,8 @@ import ItemList from "../components/Items/ItemList";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { getFirestore } from "../firebase";
+import CategoryFilter from "../components/CategoryFilter/CategoryFilter";
+import NotFound from '../pages/NotFound'
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -22,7 +24,7 @@ const ItemListContainer = ({ greeting }) => {
             .get()
             .then(querySnapshot => {
                 if (querySnapshot.empty) {
-                    console.log('no hay productos')
+                    throw new Error('Ha ocurrido un error')
                 } else {
                     setItems(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
                 }
@@ -34,10 +36,8 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div className="itemListContainer">
-            <div className="greetingMsg" >
-                <p>{greeting ? greeting : 'Resultado'}!</p>
-                <p>¿Qué te gustaría comer?</p>
-            </div>
+            {error && (<NotFound />)}
+
             <ItemList
                 loader={loader}
                 error={error}

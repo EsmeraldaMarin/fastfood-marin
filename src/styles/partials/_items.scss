@@ -1,10 +1,4 @@
 .itemListContainer {
-    .greetingMsg {
-        width: 100%;
-        padding-left: 30px;
-        font-weight: bold;
-        margin-top: 20px;
-    }
     ul {
         width: 85%;
         margin: 100px auto;
@@ -48,7 +42,7 @@
             }
         }
         @media (max-width: 1000px) {
-            margin-top: 50px;
+            margin-top: 20px;
             width: 100%;
             grid-template-columns: repeat(2, 150px);
             li.itemProduct {

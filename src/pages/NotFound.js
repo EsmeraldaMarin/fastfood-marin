@@ -1,9 +1,10 @@
 import React from 'react'
+import NotFoundModal from '../components/NotFoundModal'
 
 const NotFound = () => {
     return (
         <div>
-            <h1>La pagina solicitada no existe</h1>
+           <NotFoundModal/>
         </div>
     )
 }
