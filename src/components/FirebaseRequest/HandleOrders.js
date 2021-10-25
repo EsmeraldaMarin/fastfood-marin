@@ -1,7 +1,7 @@
 import { getFirestore } from '../../firebase';
-import { useHistory } from 'react-router-dom';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+
 
 const db = getFirestore();
 const orderCollection = db.collection('orders');
@@ -45,9 +45,7 @@ const updateStocks = (cart) => {
 }
 
 //borra una orden de la coleccion en la bd
-export const RemoveOrder = (orderRequest) => {
-    let history = useHistory();
-
+export const RemoveOrder = (orderRequest, history) => {
     const productRef = orderCollection.doc(orderRequest.id)
     productRef.delete().then(() => { history.push('/') })
 }

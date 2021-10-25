@@ -23,8 +23,24 @@ const getProduct = (categoryKey, setLoader, setItems, setError) => {
 
 }
 
+export const getCategoryByKey = (key, setBannerText) => {
+
+    const categoriesCollection = db.collection('categories').where('key', '==', parseInt(key))
+    categoriesCollection
+        .get()
+        .then(querySnapshot => {
+            if (querySnapshot.empty) {
+                setBannerText(false)
+            } else {
+                let category = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                setBannerText(category[0].name)
+            }
+        })
+
+}
+
 export const getProductById = (id, setLoader, setItem) => {
-    
+
     const productsCollection = db.collection('products');
     const product = productsCollection.doc(id);
     setLoader(true)

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import ListItemOnCart from '../components/Cart/ListItemOnCart';
 import { UseCart } from '../context/CartContext';
 import OrderCtn from './OrderCtn';
@@ -10,6 +10,7 @@ const CartContainer = () => {
     const { cart, removeItem, totalAmount, cleanCart } = UseCart();
     const [orderRequest, setOrderRequest] = useState(false);
     const [cartConfirmed, setCartConfirmed] = useState(false);
+    let history = useHistory();
 
     //maneja la peticion de la orden
     const handleOrder = (formdata) => CreateOrder(formdata, cart, totalAmount, setOrderRequest)
@@ -24,7 +25,7 @@ const CartContainer = () => {
     }
 
     //borra una orden de la coleccion en la bd
-    const handleRemove = () => RemoveOrder()
+    const handleRemove = () => RemoveOrder(orderRequest, history)
 
 
     return (
