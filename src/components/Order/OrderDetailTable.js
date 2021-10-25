@@ -25,7 +25,7 @@ const OrderDetailTable = ({ cart, removeOrder }) => {
             </div>
             <div className='btnSection'>
                 <button className="fas fa-trash" onClick={() => removeOrder()} />
-                <button>Editar Orden</button>
+                <button disabled>Editar Orden</button>
             </div>
         </div>
     )

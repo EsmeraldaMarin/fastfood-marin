@@ -10,7 +10,7 @@ const OrderList = ({ cart, orderId, removeOrder, cleanCart }) => {
                 <h3>Orden realizada exitosamente</h3>
                 <i className="far fa-check-circle"></i>
                 <p>El ID de tu orden es: <b>{orderId}</b></p>
-                <Link to='/' onClick={cleanCart}>Volver a inicio</Link>
+                <Link to='/' style={{color: '#fff' }} onClick={cleanCart}>Listo <i className="fas fa-check"></i></Link>
             </div>
         </div>
     )

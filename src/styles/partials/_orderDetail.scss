@@ -2,7 +2,9 @@
     width: 100%;
     padding-top: 50px;
     display: flex;
-
+    @media (max-width: $bp-phone) {
+        flex-direction: column-reverse;
+    }
     .successMsg {
         width: 40%;
         border-left: 2px solid #ccc;
@@ -11,6 +13,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @media (max-width: $bp-phone) {
+            width: 100%;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #ccc;
+            border-left: 0;
+        }
         p {
             line-height: 45px;
         }
@@ -22,10 +30,15 @@
             display: block;
         }
         a {
-            padding: 0.3rem 0.8rem;
+            padding: 0.5em 1.5em;
             background-color: rgb(0, 173, 0);
             border-radius: 20px;
             margin-top: 30px;
+            i{
+                font-size: 1em;
+                color: #fff;
+                margin: 0;
+            }
         }
         i {
             color: rgb(0, 173, 0);
@@ -37,6 +50,11 @@
         width: 60%;
         padding-right: 50px;
         position: relative;
+        @media (max-width: $bp-phone) {
+            width: 100%;
+            padding: 0;
+            margin-top: 30px;
+        }
         .tableRef {
             margin-top: 15px;
             margin-bottom: 5px;
@@ -92,9 +110,19 @@
                 background-color: transparent;
                 box-shadow: none;
                 border-radius: 100%;
+                @media (max-width: $bp-phone) {
+                    font-size: 18px;
+                }
                 &:hover {
                     background-color: #eee;
                 }
+            }
+            @media (max-width: $bp-phone) {
+                margin-top: 20px;
+                position: relative;
+                right: inherit;
+                bottom: inherit;
+                justify-content: flex-end;
             }
         }
     }

@@ -6,34 +6,46 @@ import { getFirestore } from '../firebase';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import OrderCtn from './OrderCtn';
+import FormCart from '../components/FormCart/FormCart';
 
 const CartContainer = () => {
     const { cart, removeItem, totalAmount, cleanCart } = UseCart();
-    const [orderRequest, setOrderRequest] = useState(false)
-    let history = useHistory()
+    const [orderRequest, setOrderRequest] = useState(false);
+    const [cartConfirmed, setCartConfirmed] = useState(false);
+    let history = useHistory();
     const db = getFirestore();
     const orderCollection = db.collection('orders');
 
-    //crear orden con los productos del carrito y los datos del user
-    const createOrder = () => {
-        const newOrder = {
-            buyer: {
-                name: 'esmeralda',
-                phone: 3571315193,
-                email: 'esme@gmail.com'
-            },
+    //crear orden con los productos del carrito (context), y los datos del user (formdata)
+    const infoUserObjectGenerator = (formData) => {
+        let buyer = {};
+        for (let key of formData.keys()) {
+            buyer[key] = formData.get(key);
+        }
+        const infoUser = {
+            buyer,
             items: cart,
             total: totalAmount(),
             date: firebase.firestore.FieldValue.serverTimestamp()
         }
-        return newOrder
+        return infoUser
+    }
+
+    //maneja la peticion de la orden, la envia a la bd y capta los resultados(el id)
+    const createOrder = (infoUser) => {
+        //const infoUser = infoUserObjectGenerator()
+        orderCollection
+            .add(infoUser)
+            .then(docRef => {
+                setOrderRequest(docRef)
+            })
+            .catch(err => console.log(err))
+            .finally(updateStocks())
     }
 
     //actualiza stocks luego de realizar la orden
     const updateStocks = () => {
-
         cart.forEach(item => {
-
             const productsCollection = db.collection('products')
             const updateCollection = productsCollection.doc(item.id);
             updateCollection
@@ -42,23 +54,14 @@ const CartContainer = () => {
         })
     }
 
-    //maneja la peticion de la orden, la envia a la bd y capta los resultados(el id)
+    //habilita el componente con el formulario 
     const handleCheckout = () => {
-
-        const newOrder = createOrder()
-        orderCollection
-            .add(newOrder)
-            .then(docRef => {
-                setOrderRequest(docRef)
-            })
-            .catch(err => console.log(err))
-            .finally(updateStocks())
-
+        setCartConfirmed(true)
+        setTimeout(() => window.scroll({
+            top: 300,
+            behavior: 'smooth'
+        }), 100)
     }
-    /* const handleUpdate = () => {
-        const productRef = orderCollection.doc("poner el id")
-        productRef.update({ quantity: 2 })
-    } */
 
     //borra una orden de la coleccion en la bd
     const handleRemove = () => {
@@ -71,6 +74,7 @@ const CartContainer = () => {
             <div className='columnSide l'></div>
             <div className='cartContainer'>
                 <h2>Tu carrito</h2>
+                {console.log(orderRequest)}
                 {cart.length !== 0 ?
                     orderRequest ?
                         <OrderCtn cart={cart} orderId={orderRequest.id} removeOrder={handleRemove} cleanCart={cleanCart} /> :
@@ -81,9 +85,10 @@ const CartContainer = () => {
                                 <span>${totalAmount()}</span>
                             </div>
                             <div className='btnSection'>
-                                {/* <button onClick={() => handleUpdate()}>Modificar orden</button>*/}
+                                <button onClick={cleanCart}>Vaciar carrito</button>
                                 <button onClick={() => handleCheckout()}>Finalizar la compra</button>
                             </div>
+                            {cartConfirmed && <FormCart createOrder={createOrder} infoUser={infoUserObjectGenerator} />}
                         </div>
                     :
                     <div className='emptyCart'>

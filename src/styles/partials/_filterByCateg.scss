@@ -2,7 +2,7 @@
     width: 90%;
     margin: 30px auto;
     display: grid;
-    grid-template-rows:  100px;
+    grid-template-rows: 100px;
     grid-auto-flow: column;
     grid-gap: 25px;
     text-transform: capitalize;
@@ -11,12 +11,12 @@
     &::-webkit-scrollbar {
         display: none;
     }
-    
+
     .categoryBtn {
-        width: 300px; 
-        height: 100%; 
+        width: 300px;
+        height: 100%;
         border-radius: 15px;
-        padding: 20px; 
+        padding: 20px;
         margin-bottom: 20px;
         display: flex;
         align-items: center;
@@ -48,9 +48,10 @@
     @media (max-width: $bp-phone) {
         grid-template-rows: repeat(2, 60px);
         grid-gap: 15px;
-        margin: 20px 0;
-        padding: 10px 30px;
-
+        border-right: 1px solid #ddd;
+        margin: 20px auto;
+        border-left: 1px solid #ddd;
+        padding: 10px;
         .categoryBtn {
             width: 180px;
             height: 100%;

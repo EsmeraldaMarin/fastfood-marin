@@ -1,8 +1,11 @@
 .cartContainer {
     width: calc(100% - 400px);
+    min-height: calc(100vh - 80px);
     padding: 70px 100px;
-    height: calc(100vh - 60px);
     margin: 0 auto;
+    box-shadow: 0 0 10px #bbb;
+    position: relative;
+    z-index: 2;
     h2 {
         border-bottom: 2px solid #ccc;
         margin-bottom: 20px;
@@ -72,7 +75,7 @@
     }
     .btnSection {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         button {
             border-radius: 20px;
             box-shadow: 0 0 5px #ddd;
@@ -80,10 +83,19 @@
             cursor: pointer;
             background-color: $orange;
             font-size: 1rem;
-
-            /*  margin-right: 20px;
-            background-color: $cream;
-            font-size: 0.8rem; */
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: $orange2;
+            }
+            &:first-child {
+                background-color: #fff;
+                @media (max-width: $bp-phone) {
+                    font-size: 14px;
+                }
+                &:hover {
+                    box-shadow: 0 0 5px #999;
+                }
+            }
         }
     }
     .emptyCart {
