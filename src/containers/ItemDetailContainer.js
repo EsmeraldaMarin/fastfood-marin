@@ -1,35 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../components/Items/ItemDetail';
 import { useParams } from 'react-router';
-import { getFirestore } from '../firebase';
+import { getProductById } from '../components/FirebaseRequest/GetProducts';
 
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [loader, setLoader] = useState(false);
     const { id } = useParams();
 
-    useEffect(() => {
-        const db = getFirestore();
-        const productsCollection = db.collection('products');
-        const product = productsCollection.doc(id);
-        setLoading(true)
-        product
-            .get()
-            .then(doc => {
-                if (!doc.exists) {
-                    console.log('el producto no existe')
-                } else {
-                    setItem({ id: doc.id, ...doc.data() })
-                }
-            })
-            .catch((error) => console.log(error))
-            .finally(() => setLoading(false));
+    useEffect(() => getProductById(id, setLoader, setItem), [id])
 
-    }, [id])
-
-    if (loading) {
+    if (loader) {
         return <div className="loader"><div id="loader-1"></div></div>
     } else {
         return (

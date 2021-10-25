@@ -1,8 +1,8 @@
 import ItemList from "../components/Items/ItemList";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { getFirestore } from "../firebase";
 import NotFound from '../pages/NotFound'
+import getProduct from "../components/FirebaseRequest/GetProducts";
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -13,24 +13,7 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
 
-        const db = getFirestore();
-
-        //filter. It can return all items or by their category
-        let productsCollection = categoryKey ? db.collection('products').where('category', '==', parseInt(categoryKey)) : db.collection('products');
-
-        setLoader(true)
-        productsCollection
-            .get()
-            .then(querySnapshot => {
-                if (querySnapshot.empty) {
-                    throw new Error('Ha ocurrido un error')
-                } else {
-                    setItems(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
-                    setError(false)
-                }
-            })
-            .catch((error) => setError(error))
-            .finally(() => setLoader(false));
+        getProduct(categoryKey, setLoader, setItems, setError)
 
     }, [categoryKey]);
 

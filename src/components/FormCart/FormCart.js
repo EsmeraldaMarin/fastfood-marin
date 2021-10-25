@@ -1,7 +1,7 @@
 import React from 'react'
 import FormInput from './FormInput'
 
-const FormCart = ({ createOrder, infoUser }) => {
+const FormCart = ({ handleOrder }) => {
 
     const activateInput = (e) => {
         e.target.value ? e.target.classList.add('inputActive') : e.target.classList.remove('inputActive')
@@ -11,8 +11,7 @@ const FormCart = ({ createOrder, infoUser }) => {
         <form className='formCart' onSubmit={(e) => {
             e.preventDefault();
             let formData = new FormData(e.currentTarget)
-            let infoUserObj = infoUser(formData)
-            createOrder(infoUserObj)
+            handleOrder(formData)
         }}>
             <h3>Tus datos</h3>
             <div>

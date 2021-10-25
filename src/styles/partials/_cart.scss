@@ -1,9 +1,8 @@
 .cartContainer {
-    width: calc(100% - 400px);
-    min-height: calc(100vh - 80px);
-    padding: 70px 100px;
+    width: 70%;
+    min-height: calc(100vh - 60px);
+    padding: 70px 3%;
     margin: 0 auto;
-    box-shadow: 0 0 10px #bbb;
     position: relative;
     z-index: 2;
     h2 {
