@@ -74,7 +74,6 @@ const CartContainer = () => {
             <div className='columnSide l'></div>
             <div className='cartContainer'>
                 <h2>Tu carrito</h2>
-                {console.log(orderRequest)}
                 {cart.length !== 0 ?
                     orderRequest ?
                         <OrderCtn cart={cart} orderId={orderRequest.id} removeOrder={handleRemove} cleanCart={cleanCart} /> :

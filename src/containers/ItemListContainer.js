@@ -32,7 +32,7 @@ const ItemListContainer = ({ greeting }) => {
             .catch((error) => setError(error))
             .finally(() => setLoader(false));
 
-    }, [categoryKey, error]);
+    }, [categoryKey]);
 
     return (
         <div className="itemListContainer">

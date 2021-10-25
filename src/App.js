@@ -6,6 +6,7 @@ import ItemDetail from "./pages/ItemDetail";
 import ItemListContainer from "./containers/ItemListContainer";
 import Cart from "./pages/Cart"
 import { CartProvider } from "./context/CartContext";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/item/:id" component={ItemDetail} />
           <Route exact path="*" component={NotFound} />
         </Switch>
+        <Footer/>
       </CartProvider>
     </BrowserRouter>
   );
