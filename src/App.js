@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ItemDetail from "./pages/ItemDetail";
-import ItemListContainer from "./containers/ItemListContainer";
+import ItemListContainer from "./containers/ItemsCtn/ItemListContainer";
 import Cart from "./pages/Cart"
 import { CartProvider } from "./context/CartContext";
 import Footer from "./components/Footer/Footer";

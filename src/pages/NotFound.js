@@ -1,5 +1,5 @@
 import React from 'react'
-import NotFoundModal from '../components/NotFoundModal'
+import NotFoundModal from '../components/NotFound/NotFoundModal'
 
 const NotFound = () => {
     return (

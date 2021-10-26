@@ -1,0 +1,66 @@
+.detail {
+    width: 60%;
+    padding-right: 50px;
+    position: relative;
+    @media (max-width: $bp-phone) {
+        width: 100%;
+        padding: 0;
+        margin-top: 30px;
+    }
+    .tableRef {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        padding: 0 5px;
+        display: grid;
+        grid-template-columns: 0.5fr 1.7fr 0.8fr;
+    }
+    .detailList {
+        box-shadow: 0 0 3px #aaa;
+        padding: 10px 0;
+        border-radius: 10px;
+        
+    }
+    .totalAmount {
+        margin-top: 10px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2.2fr 0.8fr;
+        h4 {
+            text-align: end;
+            padding-right: 40px;
+        }
+        > p {
+            padding-left: 10px;
+            font-weight: bold;
+        }
+    }
+    .btnSection {
+        position: absolute;
+        bottom: 0;
+        right: 50px;
+        button{
+            margin-left: 10px;
+        }
+        button:hover{
+            background-color: $orange2;
+        }
+        button:first-child {
+            background-color: transparent;
+            box-shadow: none;
+            border-radius: 100%;
+            @media (max-width: $bp-phone) {
+                font-size: 18px;
+            }
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        @media (max-width: $bp-phone) {
+            margin-top: 20px;
+            position: relative;
+            right: inherit;
+            bottom: inherit;
+            justify-content: flex-end;
+        }
+    }
+}

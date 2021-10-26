@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from '../components/Items/ItemDetail';
+import ItemDetail from '../../components/Items/ItemDetail';
 import { useParams } from 'react-router';
-import { getProductById } from '../components/FirebaseRequest/GetProducts';
+import { getProductById } from '../../components/FirebaseRequest/GetProducts';
 
 
 const ItemDetailContainer = () => {

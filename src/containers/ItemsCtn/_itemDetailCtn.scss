@@ -1,0 +1,10 @@
+.itemDetailCtn {
+    padding: 100px;
+    @media (max-width: $bp-phone) {
+        width: 100%;
+        padding: 50px;
+    }
+    > h2 {
+        margin-bottom: 30px;
+    }
+}

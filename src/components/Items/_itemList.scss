@@ -1,0 +1,15 @@
+ul.itemList {
+    width: 87%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
+    grid-gap: 20px;
+    text-transform: capitalize;
+    justify-content: space-between;
+    @media (max-width: $bp-phone) {
+        margin-top: 0;
+        width: 100%;
+        grid-template-columns: repeat(2, 150px);
+        justify-content: center;
+    }
+}

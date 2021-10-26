@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { UseCart } from '../../context/CartContext';
-import ItemCountSimple from '../ItemCountSimple';
+import ItemCountSimple from '../Counters/ItemCountSimple';
 
 const itemOnCart = ({ item, removeItem }) => {
 

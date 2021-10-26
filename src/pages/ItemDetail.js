@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemDetailContainer from '../containers/ItemDetailContainer';
+import ItemDetailContainer from '../containers/ItemsCtn/ItemDetailContainer';
 
 const ItemDetail = () => {
    

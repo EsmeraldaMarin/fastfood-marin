@@ -1,7 +1,7 @@
 import React from 'react'
 import CategoryFilter from '../components/CategoryFilter/CategoryFilter'
-import GreetinMsg from '../components/GreetinMsg'
-import ItemListContainer from '../containers/ItemListContainer'
+import GreetinMsg from '../components/GreetingMsg/GreetingMsg'
+import ItemListContainer from '../containers/ItemsCtn/ItemListContainer'
 
 const Home = () => {
 

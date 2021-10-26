@@ -1,4 +1,4 @@
-import CartWidget from "../CartWidget";
+import CartWidget from "../Cart/CartWidget";
 import { Link, NavLink } from 'react-router-dom';
 import { UseCart } from '../../context/CartContext'
 import BurgerMenu from "./BurgerMenu";

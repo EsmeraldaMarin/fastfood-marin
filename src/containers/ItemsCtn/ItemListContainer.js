@@ -1,8 +1,8 @@
-import ItemList from "../components/Items/ItemList";
+import ItemList from "../../components/Items/ItemList";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import NotFound from '../pages/NotFound'
-import getProduct, { getCategoryByKey } from "../components/FirebaseRequest/GetProducts";
+import NotFound from '../../pages/NotFound'
+import getProduct, { getCategoryByKey } from "../../components/FirebaseRequest/GetProducts";
 
 const ItemListContainer = () => {
 

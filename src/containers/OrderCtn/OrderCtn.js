@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import OrderDetailTable from '../components/Order/OrderDetailTable'
+import OrderDetailTable from '../../components/Order/OrderDetailTable'
 
 const OrderList = ({ cart, orderId, removeOrder, cleanCart }) => {
     return (

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
-import ListItemOnCart from '../components/Cart/ListItemOnCart';
-import { UseCart } from '../context/CartContext';
-import OrderCtn from './OrderCtn';
-import FormCart from '../components/FormCart/FormCart';
-import CreateOrder, { RemoveOrder } from '../components/FirebaseRequest/HandleOrders';
+import ListItemOnCart from '../../components/Cart/ListItemOnCart';
+import { UseCart } from '../../context/CartContext';
+import OrderCtn from '../OrderCtn/OrderCtn';
+import FormCart from '../../components/FormCart/FormCart';
+import CreateOrder, { RemoveOrder } from '../../components/FirebaseRequest/HandleOrders';
 
 const CartContainer = () => {
     const { cart, removeItem, totalAmount, cleanCart } = UseCart();

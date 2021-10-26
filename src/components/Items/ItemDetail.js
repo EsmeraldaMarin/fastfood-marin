@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
-import ItemCount from '../ItemCount';
+import ItemCount from '../Counters/ItemCount';
 import { UseCart } from '../../context/CartContext'
 
 const ItemDetail = ({ item }) => {

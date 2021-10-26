@@ -1,9 +1,7 @@
 import React from 'react';
-//import { useCart } from '../context/CartContext';
-import CartContainer from '../containers/CartContainer'
+import CartContainer from '../containers/CartCtn/CartContainer'
 
 const Cart = () => {
-    //const { cart, removeItem } = useCart()
 
     return (
         <div>

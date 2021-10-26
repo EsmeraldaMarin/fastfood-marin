@@ -1,0 +1,41 @@
+li.itemProduct {
+    width: 280px;
+    padding: 15px;
+    box-shadow: 0 0 5px #bbb;
+    border-radius: 25px;
+    text-align: center;
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: scale(1.03);
+        cursor: pointer;
+        background-color: #eee;
+        img {
+            filter: brightness(0.9);
+        }
+    }
+    &:active {
+        background-color: #ddd;
+    }
+    img {
+        width: 100%;
+        max-height: 170px;
+        min-height: 170px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    p {
+        margin: 5px 0;
+        &.productPrice {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    }
+    @media (max-width: $bp-phone) {
+        width: 150px;
+        padding: 10px;
+        img {
+            max-height: 100px;
+            min-height: 100px;
+        }
+    }
+}

@@ -1,10 +1,23 @@
+//VARIABLES Y BASE--------------------------------
 @import "partials/variables";
 @import "partials/base";
-@import "partials/notFound";
-@import "partials/navbar";
-@import "partials/filterByCateg";
-@import "partials/counter";
-@import "partials/items";
-@import "partials/itemDetail";
-@import "partials/cart";
-@import "partials/orderDetail";
+
+//CONTENEDORES------------------------------------
+@import "../containers/CartCtn/cartCtn";
+@import "../containers/ItemsCtn/itemDetailCtn";
+@import "../containers/ItemsCtn/itemListCtn";
+@import "../containers/OrderCtn/orderDetail";
+
+//COMPONENTES-------------------------------------
+@import "../components/NotFound/notFound";
+@import "../components/GreetingMsg/greetingMsg";
+@import "../components/Navbar/navbar";
+@import "../components/Cart/itemOnCart";
+@import "../components/Counters/counter";
+@import "../components/Items/itemList";
+@import "../components/Items/item";
+@import "../components/Items/itemDetail";
+@import "../components/CategoryFilter/filterByCateg";
+@import "../components/Order/orderDetailTable";
+@import "../components/Order/orderDetailItem";
+@import "../components/Footer/footer";

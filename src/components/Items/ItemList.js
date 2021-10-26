@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Item from './Item';
 const ItemList = ({ items, loader }) => {
     return (
-        <ul>
+        <ul className='itemList'>
             {loader && <div className="loader"><div id="loader-1"></div></div>}
             {
                 items?.map((item) => {
