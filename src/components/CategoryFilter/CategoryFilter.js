@@ -1,22 +1,13 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { getFirestore } from '../../firebase';
+import GetCategories from '../FirebaseRequest/GetCategories';
 import CategoryBtn from './CategoryBtn';
 
 const CategoryFilter = () => {
 
     const [categories, setCategories] = useState([])
 
-    useEffect(() => {
-        const db = getFirestore();
-        let productsCollection = db.collection('categories')
-
-        productsCollection
-            .get()
-            .then(querySnapshot => setCategories(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))))
-            .catch((error) => console.log(error))
-
-    }, [])
+    useEffect(() => GetCategories(setCategories), [])
 
     return (
         <div className='categoryFilter'>

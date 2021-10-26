@@ -2,22 +2,18 @@ import CartWidget from "../Cart/CartWidget";
 import { Link, NavLink } from 'react-router-dom';
 import { UseCart } from '../../context/CartContext'
 import BurgerMenu from "./BurgerMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import GetCategories from "../FirebaseRequest/GetCategories";
 
 function NavBar() {
 
     const { totalQuantity } = UseCart();
     const [burgerMenu, setBurgerMenu] = useState(false);
+    const [categories, setCategories] = useState([])
 
     const toggleBurgerMenu = () => burgerMenu ? setBurgerMenu(false) : setBurgerMenu(true)
 
- /*    //cierra el menu si el user clickea fuera de el
-    document.addEventListener('click', function (event) {
-        if (event.target.parentElement.id !== 'header' && event.target.id !== 'navBar') {
-            setBurgerMenu(false)
-        }
-
-    }); */
+    useEffect(() => GetCategories(setCategories), [])
 
     return (
         <header id='header' className={burgerMenu ? 'bMenuActive' : ''}>
@@ -25,10 +21,9 @@ function NavBar() {
             <nav className='navbar' id='navBar'>
                 <ul>
                     <li><NavLink exact to='/' activeClassName='selected'>Home</NavLink></li>
-                    <li><NavLink to='/category/1' activeClassName='selected'>Comida Rápida</NavLink></li>
-                    <li><NavLink to='/category/2' activeClassName='selected'>Pasta</NavLink></li>
-                    <li><NavLink to='/category/3' activeClassName='selected'>Bebidas</NavLink></li>
-                    <li><NavLink to='/category/4' activeClassName='selected'>Postres</NavLink></li>
+                    {categories?.map(category => {
+                        return <li key={category.key}><NavLink to={`/category/${category.key}`} activeClassName='selected'>{category.name}</NavLink></li>
+                    })}
                 </ul>
             </nav>
             <Link to="/" className='logo'>FastFood</Link>

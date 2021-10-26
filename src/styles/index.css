@@ -504,6 +504,20 @@ a {
   }
 }
 
+.cartWidget {
+  height: 100%;
+  width: 4.5em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: background-color 0.25s ease;
+}
+
+.cartWidget:hover {
+  background-color: #fad184;
+  cursor: pointer;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -577,6 +591,10 @@ header .burguerMenu span {
   transition: all 0.25s ease;
 }
 
+header .navbar {
+  text-transform: capitalize;
+}
+
 header .navbar > ul {
   display: flex;
 }
@@ -598,6 +616,15 @@ header .navbar > ul li a {
 header .navbar > ul li a.selected {
   border-radius: 20px;
   background-color: #fad184;
+}
+
+header .navbar > ul li a.selected:hover {
+  cursor: default;
+  font-weight: normal;
+}
+
+header .navbar > ul li a.selected:active {
+  color: #000;
 }
 
 @media (max-width: 1000px) {
@@ -628,20 +655,6 @@ header .navbar > ul li a.selected {
   header .navbar ul {
     display: none;
   }
-}
-
-header .cartWidget {
-  height: 100%;
-  width: 4.5em;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  transition: background-color 0.25s ease;
-}
-
-header .cartWidget:hover {
-  background-color: #fad184;
-  cursor: pointer;
 }
 
 header .logo {
