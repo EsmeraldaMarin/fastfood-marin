@@ -6,6 +6,7 @@ li.itemProduct {
     border-radius: 25px;
     position: relative;
     transition: transform 0.5s ease;
+    background-color: #fff;
     &:hover {
         transform: scale(1.03);
         cursor: pointer;

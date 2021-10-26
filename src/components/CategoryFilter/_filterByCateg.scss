@@ -22,11 +22,12 @@
         align-items: center;
         box-shadow: 0 0 5px #bbb;
         transition: transform 0.5s ease;
+        background-color: #fff;
 
         &:hover {
             transform: scale(1.03);
             cursor: pointer;
-            background-color: #eee;
+            background-color: $cream;
             img {
                 filter: brightness(0.9);
             }
