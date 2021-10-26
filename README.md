@@ -19,15 +19,14 @@ React technology is implemented to be able to perform the functions and procedur
 - REACT
 - GIT AND GITHUB 
 - NODE.JS
+- CSS (SASS)
 - Dependencies:
     - react
     - react-dom
     - react-router-dom
     - react-scripts
-    - json-server (https://www.npmjs.com/package/json-server)
+    - firebase
 - HTML
-- CSS (SASS)
-
 
 ## Getting Started 🚀
 
@@ -37,9 +36,9 @@ In this README.md you will find the specifications to install, initialize and us
 
 - Clone this repository:
     https://github.com/EsmeraldaMarin/fastfood-marin.git
-- Install the dependencies
+- Open a terminal and install the dependencies
 
-    _Use_
+    _Using_
     ```
     npm install
     ```
@@ -48,39 +47,12 @@ In this README.md you will find the specifications to install, initialize and us
     npm i
     ```
 
-    Dependencies:
-    ```
-     {
-        "@testing-library/jest-dom": "^5.14.1",
-        "@testing-library/react": "^11.2.7",
-        "@testing-library/user-event": "^12.8.3",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-router-dom": "^5.3.0",
-        "react-scripts": "4.0.3",
-        "web-vitals": "^1.1.2"
-    }
-    ```
-    and json-server using the following command
-    
-    ```
-    npm i json-server
-    ```
-    
 ---
 
 ### Initialization ⚙️
-- Initialize the server
+- Initialize the program
 
-    - Open a terminal and write the following line to run the server
-
-    ```
-    json-server --watch src/mocks/db.json --port 3001
-    ```
-
-    NOTE: The ports that are used in this project are in example mode, you can change them, but be careful because in the code they are used several times. We recommend not changing them for your convenience.
-
-    - In another terminal, and without closing the previous one, run the following line to initialize the program
+    Run the following line in the terminal to initialize the program
 
     ```
     npm start
@@ -88,4 +60,6 @@ In this README.md you will find the specifications to install, initialize and us
 
 ---
 
-To be continue...
+### Clarifications
+
+The .env file in the root folder contains vulnerable information, but for convenience, you can have it without any restrictions.
