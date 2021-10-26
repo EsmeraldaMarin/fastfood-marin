@@ -7,6 +7,7 @@ import FormCart from '../../components/FormCart/FormCart';
 import CreateOrder, { RemoveOrder } from '../../components/FirebaseRequest/HandleOrders';
 
 const CartContainer = () => {
+
     const { cart, removeItem, totalAmount, cleanCart } = UseCart();
     const [orderRequest, setOrderRequest] = useState(false);
     const [cartConfirmed, setCartConfirmed] = useState(false);
@@ -26,7 +27,6 @@ const CartContainer = () => {
 
     //borra una orden de la coleccion en la bd
     const handleRemove = () => RemoveOrder(orderRequest, history)
-
 
     return (
         <>

@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Item = ({ title, price, pictureUrl, description }) => {
     return (
         <li className="itemProduct">

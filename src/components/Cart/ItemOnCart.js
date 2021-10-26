@@ -8,9 +8,7 @@ const itemOnCart = ({ item, removeItem }) => {
 
     const { updateItemOnCart } = UseCart();
 
-    const updateItemOnCartFunction = (id, quantity) => {
-        updateItemOnCart(id, quantity);
-    }
+    const updateItemOnCartFunction = (id, quantity) => updateItemOnCart(id, quantity);
 
     return (
         <li className='itemOnCartDetail'>

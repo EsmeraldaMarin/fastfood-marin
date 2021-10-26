@@ -99,122 +99,6 @@ a {
   border: 5px solid #eee;
 }
 
-.formCart {
-  width: 500px;
-  padding: 100px 50px 30px;
-  margin: 50px auto 0;
-  background-color: #fff;
-  position: relative;
-  border-radius: 60px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: inset 0 0 10px #ddd;
-  text-transform: capitalize;
-}
-
-@media (max-width: 1000px) {
-  .formCart {
-    width: 100%;
-  }
-}
-
-.formCart h3 {
-  width: calc(100% + 10px);
-  padding: 0.2em 0;
-  text-align: center;
-  position: absolute;
-  top: 30px;
-  left: -5px;
-  background: linear-gradient(to right, #ffb830 0%, #fad184 50%, #ffb830 100%);
-  border-radius: 5px;
-}
-
-.formCart > div > div {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.formCart > div > div .form-floating {
-  width: 45%;
-}
-
-@media (max-width: 1000px) {
-  .formCart > div > div {
-    display: inherit;
-  }
-  .formCart > div > div .form-floating {
-    width: 100%;
-  }
-  .formCart > div > div:last-child {
-    display: flex;
-  }
-  .formCart > div > div:last-child .form-floating {
-    width: 45%;
-  }
-}
-
-.formCart .form-floating {
-  width: 100%;
-  height: 30px;
-  position: relative;
-  margin-bottom: 50px;
-}
-
-@media (max-width: 1000px) {
-  .formCart .form-floating {
-    width: 100%;
-  }
-}
-
-.formCart .form-floating input {
-  width: 100%;
-  height: 100%;
-  border-bottom: 2px solid #000;
-  background-color: transparent;
-  color: #000;
-  font-size: 16px;
-}
-
-.formCart .form-floating input:focus ~ label {
-  top: -1.3em;
-  font-size: 12px;
-}
-
-.formCart .form-floating input.inputActive ~ label {
-  top: -1.3em;
-  font-size: 12px;
-}
-
-.formCart .form-floating label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.25s ease;
-}
-
-.formCart button {
-  border-radius: 20px;
-  box-shadow: 0 0 5px #ddd;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  background-color: #ffb830;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.formCart button:hover {
-  background-color: #fad184;
-}
-
-.formCart button:first-child {
-  background-color: #fff;
-}
-
-.formCart button:first-child:hover {
-  box-shadow: 0 0 5px #999;
-}
-
 .cartContainer {
   width: 70%;
   min-height: calc(100vh - 60px);
@@ -717,6 +601,122 @@ ul.listItemOnCart li.itemOnCartDetail > button:hover {
 
 ul.listItemOnCart li.itemOnCartDetail > button:active {
   color: #ccc;
+}
+
+.formCart {
+  width: 500px;
+  padding: 100px 50px 30px;
+  margin: 50px auto 0;
+  background-color: #fff;
+  position: relative;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 10px #ddd;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1000px) {
+  .formCart {
+    width: 100%;
+  }
+}
+
+.formCart h3 {
+  width: calc(100% + 10px);
+  padding: 0.2em 0;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: -5px;
+  background: linear-gradient(to right, #ffb830 0%, #fad184 50%, #ffb830 100%);
+  border-radius: 5px;
+}
+
+.formCart > div > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.formCart > div > div .form-floating {
+  width: 45%;
+}
+
+@media (max-width: 1000px) {
+  .formCart > div > div {
+    display: inherit;
+  }
+  .formCart > div > div .form-floating {
+    width: 100%;
+  }
+  .formCart > div > div:last-child {
+    display: flex;
+  }
+  .formCart > div > div:last-child .form-floating {
+    width: 45%;
+  }
+}
+
+.formCart .form-floating {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1000px) {
+  .formCart .form-floating {
+    width: 100%;
+  }
+}
+
+.formCart .form-floating input {
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #000;
+  background-color: transparent;
+  color: #000;
+  font-size: 16px;
+}
+
+.formCart .form-floating input:focus ~ label {
+  top: -1.3em;
+  font-size: 12px;
+}
+
+.formCart .form-floating input.inputActive ~ label {
+  top: -1.3em;
+  font-size: 12px;
+}
+
+.formCart .form-floating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.25s ease;
+}
+
+.formCart button {
+  border-radius: 20px;
+  box-shadow: 0 0 5px #ddd;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #ffb830;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.formCart button:hover {
+  background-color: #fad184;
+}
+
+.formCart button:first-child {
+  background-color: #fff;
+}
+
+.formCart button:first-child:hover {
+  box-shadow: 0 0 5px #999;
 }
 
 .itemCountCtn {

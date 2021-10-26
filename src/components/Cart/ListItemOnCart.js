@@ -1,22 +1,17 @@
 import React from 'react';
 import ItemOnCart from './ItemOnCart'
 
-const ListItemOnCart = ({ cart, removeItem }) => {
+const ListItemOnCart = ({ cart, removeItem }) => (
 
-    return (
+    <ul className="listItemOnCart">
+        {cart?.map((item) => {
 
-        <ul className="listItemOnCart">
-            {
-                cart?.map((item) => {
+            return (
+                <ItemOnCart key={item.id} item={item} removeItem={removeItem} />
 
-                    return (
-                        <ItemOnCart key={item.id} item={item} removeItem={removeItem} />
-
-                    )
-                })
-            }
-        </ul>
-    )
-}
+            );
+        })}
+    </ul>
+)
 
 export default ListItemOnCart

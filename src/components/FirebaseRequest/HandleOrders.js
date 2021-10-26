@@ -2,7 +2,6 @@ import { getFirestore } from '../../firebase';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
-
 const db = getFirestore();
 const orderCollection = db.collection('orders');
 
@@ -26,9 +25,7 @@ const CreateOrder = (formdata, cart, totalAmount, setOrderRequest) => {
     const infoUser = infoUserObjectGenerator(formdata, cart, totalAmount)
     orderCollection
         .add(infoUser)
-        .then(docRef => {
-            setOrderRequest(docRef)
-        })
+        .then(docRef => setOrderRequest(docRef))
         .catch(err => console.log(err))
         .finally(updateStocks(cart))
 }

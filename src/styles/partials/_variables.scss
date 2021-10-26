@@ -1,9 +1,16 @@
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+//colors
 $orange: #ffb830;
 $orange2: #fad184;
 $red: #ff2442;
 $cream:#FFEDDA;
+
+//breakpoints
 $bp-phone: 1000px;
 
+//keyframes
 @keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);

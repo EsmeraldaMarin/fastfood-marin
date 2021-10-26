@@ -8,6 +8,7 @@ const getProduct = (categoryKey, setLoader, setItems, setError) => {
 
     //filter. It can return all items or by their category
     let productsCollection = categoryKey ? db.collection('products').where('category', '==', parseInt(categoryKey)) : db.collection('products');
+    
     setLoader(true)
     productsCollection
         .get()
@@ -43,6 +44,7 @@ export const getProductById = (id, setLoader, setItem) => {
 
     const productsCollection = db.collection('products');
     const product = productsCollection.doc(id);
+
     setLoader(true)
     product
         .get()
