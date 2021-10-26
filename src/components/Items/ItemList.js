@@ -14,6 +14,7 @@ const ItemList = ({ items, loader }) => {
                                 pictureUrl={item.pictureUrl}
                                 price={item.price}
                                 description={item.description}
+                                stock= {item.stock}
                             />
                         </Link>
                     )

@@ -826,17 +826,18 @@ ul.itemList {
 
 li.itemProduct {
   width: 280px;
-  padding: 15px;
+  min-height: 330px;
+  padding: 20px;
   box-shadow: 0 0 5px #bbb;
   border-radius: 25px;
-  text-align: center;
+  position: relative;
   transition: transform 0.5s ease;
 }
 
 li.itemProduct:hover {
   transform: scale(1.03);
   cursor: pointer;
-  background-color: #eee;
+  background-color: #FFEDDA;
 }
 
 li.itemProduct:hover img {
@@ -857,17 +858,63 @@ li.itemProduct img {
 
 li.itemProduct p {
   margin: 5px 0;
+  font-size: 1.1em;
 }
 
 li.itemProduct p.productPrice {
   font-size: 1.2em;
   font-weight: bold;
+  text-align: end;
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+}
+
+@media (max-width: 1000px) {
+  li.itemProduct p.productPrice {
+    position: inherit;
+    right: initial;
+    bottom: initial;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+li.itemProduct p.description {
+  font-size: 12px;
+  color: #1b1b1b;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  li.itemProduct p.description {
+    display: none;
+  }
+}
+
+li.itemProduct .sinStock {
+  display: inline-block;
+  margin-top: 15px;
+  border-radius: 15px;
+  padding: 0.5em 1em;
+  background-color: #fad184;
+  text-transform: initial;
+}
+
+@media (max-width: 1000px) {
+  li.itemProduct .sinStock {
+    margin-top: 5px;
+  }
 }
 
 @media (max-width: 1000px) {
   li.itemProduct {
     width: 150px;
     padding: 10px;
+    text-align: center;
+    min-height: 250px;
   }
   li.itemProduct img {
     max-height: 100px;
