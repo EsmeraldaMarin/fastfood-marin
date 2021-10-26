@@ -9,7 +9,6 @@ const Home = () => {
         <div className='home'>
             <GreetinMsg greeting="Hola, Usuario"  />
             <CategoryFilter/>
-            <h3>Populares</h3>
             <ItemListContainer/>
         </div>
     )
